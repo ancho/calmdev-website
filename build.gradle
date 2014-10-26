@@ -1,0 +1,18 @@
+buildscript {
+  repositories {
+      mavenLocal()
+      jcenter()
+  }
+
+  dependencies {
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
+  }
+}
+
+apply plugin: 'me.champeau.jbake'
+
+jbake{
+  version = "2.3.2"
+  asciidoctorjVersion = "1.5.1"
+  configuration['render.tags'] = true
+}
