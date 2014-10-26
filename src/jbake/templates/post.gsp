@@ -1,6 +1,5 @@
 <%include "header.gsp"%>
-	
-	<%include "menu.gsp"%>
+<%include "menu.gsp"%>
 	
 	<div class="page-header">
 		<h1>${content.title}</h1>
