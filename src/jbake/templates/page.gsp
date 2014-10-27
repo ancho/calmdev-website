@@ -1,23 +1,20 @@
 <% include "header.gsp" %>
-
 <% include "menu.gsp" %>
-
 <main>
     <div class="row">
         <div class="small-12 columns">
-            <h1>${content.title}</h1>
-            <hr/>
-        </div>
-    </div>
+            <section>
+                <header>
+                    <h1>${content.title}</h1>
 
-    <div class="row">
-        <div class="small-12 columns">
+                    <time datetime="${content.date.format("yyyy-MM-dd")}">
+                        <small> ${content.date.format("dd.MM.yyyy")} </small>
+                    </time>
 
-            <p><em>${content.date.format("dd MMMM yyyy")}</em></p>
-
-            <p>${content.body}</p>
-
-            <hr/>
+                    <hr/>
+                </header>
+                ${content.body}
+            </section>
         </div>
     </div>
 </main>

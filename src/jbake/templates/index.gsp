@@ -10,7 +10,7 @@
 
     <% published_posts.each { post -> %>
     <div class="row">
-        <div class="small-12 large-12 columns">
+        <div class="small-12 columns">
             <article class="panel radius">
                 <header>
                     <h3>${post.title} <small><time datetime="${post.date.format("yyyy-MM-dd")}">${post.date.format("dd.MM.yyyy")}</time></small></h3>
