@@ -8,8 +8,12 @@
 
         <div>
             <% alltags.each { tag ->
-                tag = tag.trim() %>
-            <span><a href="/tags/${tag.replace(' ', '-')}.html" class="label">${tag}</a></span>
+                tag = tag.trim()
+                def postsCount = posts.findAll { post ->
+                    post.tags.contains(tag)
+                }.size()
+            %>
+            <span><a href="/tags/${tag.replace(' ', '-')}.html" class="label">${tag} <span class="badge">${postsCount}</span></a></span>
             <% } %>
         </div>
     </div>

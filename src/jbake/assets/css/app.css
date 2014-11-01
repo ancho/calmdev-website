@@ -45,3 +45,11 @@ article.panel {
     line-height: 1;
     background-color: #eeeeee;
 }
+
+.badge {
+    border-radius: 2px;
+    background-color: #bcbcbc;
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+}
