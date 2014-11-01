@@ -2,7 +2,7 @@
 <% include "menu.gsp" %>
 <main>
 
-    <% published_posts.each { post -> %>
+    <% published_posts[0..2].each { post -> %>
     <div class="row">
         <div class="small-12 columns">
             <article class="panel">
@@ -21,7 +21,7 @@
                         <div class="small-9 medium-11 large-11 columns">
 
                             <div>
-                                <h3><a href="${post.uri}">${post.title}</a></h3>
+                                <h1><a href="${post.uri}">${post.title}</a></h1>
 
                                 <p>
                                     <% post.tags.each { tag ->
@@ -47,5 +47,12 @@
         </div>
     </div>
     <% } %>
+    <div class="row">
+        <div class="small-12 columns">
+            <hr/>
+            Older post are available in the <a href="${config.archive_file}">archive</a>
+        </div>
+    </div>
+
 </main>
 <% include "footer.gsp" %>

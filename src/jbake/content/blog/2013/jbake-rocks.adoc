@@ -1,0 +1,15 @@
+= Jbake Rocks
+Frank Becker
+2014-11-01
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: jbake
+
+== Having fun with jbake ==
+
+Writing a blog with jbake is so much more fun in contrast to using ghost or any other cms.
+But I thing thats because I'm kind of a Commandline junkie.
+And editing a Post with vim. Pushing it with git. Bake and publish it with gradle is really fun to do.
+Feels like coding. But isn't.
+
+

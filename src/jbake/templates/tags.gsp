@@ -7,7 +7,7 @@
         <h1>Taglist</h1>
 
         <div>
-            <% alltags.each { tag ->
+            <% alltags.sort().each { tag ->
                 tag = tag.trim()
                 def postsCount = posts.findAll { post ->
                     post.tags.contains(tag)
