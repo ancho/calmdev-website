@@ -24,8 +24,11 @@
                                 <h3><a href="${post.uri}">${post.title}</a></h3>
 
                                 <p>
-                                    <span><a href="#" class="label">blog</a></span>
-                                    <span><a href="#" class="label">asciidoc</a></span>
+                                    <% post.tags.each { tag ->
+                                        tag = tag.trim()
+                                    %>
+                                        <span><a href="/tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
+                                    <% } %>
                                 </p>
                                 <hr/>
 

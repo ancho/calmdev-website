@@ -20,10 +20,12 @@
 
                             <div>
                                 <h1>${content.title}</h1>
-
                                 <p>
-                                    <span><a href="#" class="label">blog</a></span>
-                                    <span><a href="#" class="label">asciidoc</a></span>
+                                    <% content.tags.each { tag ->
+                                        tag = tag.trim()
+                                    %>
+                                    <span><a href="/tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
+                                    <% } %>
                                 </p>
                                 <hr/>
 

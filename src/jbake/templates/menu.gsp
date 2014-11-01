@@ -8,12 +8,9 @@
 
         <div class="top-bar-section">
             <ul class="nav navbar-nav">
-                <li><a href="<% if (content.rootpath) { %>${content.rootpath}<% } else { %><%
-                    } %>index.html">Home</a></li>
-                <li><a href="<% if (content.rootpath) { %>${content.rootpath}<% } else { %><%
-                    } %>about.html">About</a></li>
-                <li><a href="<% if (content.rootpath) { %>${content.rootpath}<% } else { %><%
-                    } %>${config.feed_file}">Subscribe</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/${config.feed_file}">Subscribe</a></li>
             </ul>
         </div>
     </nav>
