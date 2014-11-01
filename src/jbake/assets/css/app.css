@@ -6,3 +6,42 @@ header time {
 header hr {
     margin-top: 0.5em;
 }
+
+article.panel {
+    margin-top: 5px;
+}
+
+.termin {
+    width: 60px;
+    height: 60px;
+    background-color: #428bca;
+    text-align: center;
+    padding: 1px;
+    border: 1px solid #5e5e5e;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.month {
+    font-size: 9pt;
+    font-weight: bold;
+    line-height: 1.2;
+    color: snow;
+    margin: 0;
+    padding: 2px 0 3px 0 ;
+}
+
+.date {
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+    padding: 2px;
+    background-color: #eeeeee;
+}
+
+.year {
+    font-size: 8pt;
+    line-height: 1;
+    background-color: #eeeeee;
+}

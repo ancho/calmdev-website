@@ -1,14 +1,46 @@
-<%include "header.gsp"%>
-<%include "menu.gsp"%>
-	
-	<div class="page-header">
-		<h1>${content.title}</h1>
-	</div>
+<% include "header.gsp" %>
+<% include "menu.gsp" %>
+<main>
+    <div class="row">
+        <div class="small-12 columns">
+            <article>
+                <header>
+                    <div class="row">
+                        <div class="small-3 medium-1 large-1 columns">
+                            <div class="termin">
+                                <div class="month">${content.date?.format("MMM")}</div>
 
-	<p><em>${content.date.format("dd MMMM yyyy")}</em></p>
+                                <div class="date">${content.date?.format("dd")}</div>
 
-	<p>${content.body}</p>
+                                <div class="year">${content.date?.format("yyyy")}</div>
+                            </div>
+                        </div>
 
-	<hr />
-	
-<%include "footer.gsp"%>
+                        <div class="small-9 medium-11 large-11 columns">
+
+                            <div>
+                                <h1>${content.title}</h1>
+
+                                <p>
+                                    <span><a href="#" class="label">blog</a></span>
+                                    <span><a href="#" class="label">asciidoc</a></span>
+                                </p>
+                                <hr/>
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="row">
+                    <div class="small-9 small-offset-3 medium-11 medium-offset-1 large-11 large-offset-1 columns">
+                        ${content.body}
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </div>
+
+</main>
+<% include "footer.gsp" %>

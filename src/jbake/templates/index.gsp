@@ -1,28 +1,45 @@
 <% include "header.gsp" %>
 <% include "menu.gsp" %>
 <main>
-    <div class="row">
-        <div class="small-12 columns">
-            <h1> Blog </h1>
-            <hr/>
-        </div>
-    </div>
 
     <% published_posts.each { post -> %>
     <div class="row">
         <div class="small-12 columns">
-            <article class="panel radius">
+            <article class="panel">
                 <header>
-                    <h3>${post.title} <small><time datetime="${post.date.format("yyyy-MM-dd")}">${post.date.format("dd.MM.yyyy")}</time></small></h3>
+                    <div class="row">
+                        <div class="small-3 medium-1 large-1 columns">
+                            <div class="termin">
+                                <div class="month">${post.date?.format("MMM")}</div>
 
-                    <p>
-                        <span><a href="#" class="label">blog</a></span>
-                        <span><a href="#" class="label">asciidoc</a></span>
-                    </p>
+                                <div class="date">${post.date?.format("dd")}</div>
 
+                                <div class="year">${post.date?.format("yyyy")}</div>
+                            </div>
+                        </div>
+
+                        <div class="small-9 medium-11 large-11 columns">
+
+                            <div>
+                                <h3><a href="${post.uri}">${post.title}</a></h3>
+
+                                <p>
+                                    <span><a href="#" class="label">blog</a></span>
+                                    <span><a href="#" class="label">asciidoc</a></span>
+                                </p>
+                                <hr/>
+
+                            </div>
+                        </div>
+                    </div>
                 </header>
-                <hr/>
-                ${post.body}
+
+                <div class="row">
+                    <div class="small-9 small-offset-3 medium-11 medium-offset-1 large-11 large-offset-1 columns">
+                        ${post.body}
+                    </div>
+                </div>
+
             </article>
         </div>
     </div>
