@@ -1,0 +1,35 @@
+title=force gvm-init.sh
+date=2014-08-25
+type=post
+tags=gvmtool,bash
+status=published
+~~~~~~
+
+Recently I installed [jbake]() with *gvm* and was wondering why it wasn't accessible within my shell after resourcing my *.bashrc*.
+
+# The problem
+There is this line in my *.bash_profile* 
+
+    [[ -s "/home/frank/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "/home/frank/.gvm/bin/gvm-init.sh"
+
+which initializes the *gvm* environment and updates your *PATH* variable to get access to the current or configured versions of tools managed through gvm.
+
+#The workaround
+
+The *gvm-init.sh* Skript sets an environment variable called *GVM_INIT* which skips updating the *PATH* variable if set to true.
+
+To update your *PATH* variable execute the following commands
+
+    export GVM_INIT=false
+    source ~/.bashrc
+
+
+But I'm still wondering. 
+If I close my shell and open a new terminal window, the phenomenon is the same. [jbake]() is still not accessible.
+
+Yet I don't get it. Maybe I'm still to tired. I'll do some further investigation.
+
+[jbake]: http://jbake.org/
+
+
+

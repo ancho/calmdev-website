@@ -1,0 +1,118 @@
+title=lazybones
+date=2014-08-24
+type=post
+tags=lazybones,maven,archetypes,templates
+status=published
+~~~~~~
+
+
+
+
+Du liebst gradle, aber vermisst maven [archetypes]()??
+
+## [lazybones]() to the rescue!!
+
+lazybones ist der knaller. Ein Commandlinetool, welches einem erlaubt aus einer vielzahl von Projekttemplates, das nächste Projekt oder Modul, im Handumdrehen erstellen zu lassen.
+
+Dazu greift es auf bintray zu, saugt sich das Template aus einem Repository (natürlich konfigurierbar), führt ein *lazybones.groovy* Skript aus, welches in dem Template enthalten ist und richtet einem das Projekt oder Modul ein.
+
+Hört sich simpel an. Ist es auch.
+
+## Installation
+
+Am einfachsten installiert man lazybones mit [gvmtool]()
+
+    gvm install lazybones
+    
+## Templates anzeigen
+
+Eine Liste verfügbarer Templates erhält man mit dem Befehl
+
+    lazybones list
+    
+[Peter Ledbrook]() und andere haben schon ein paar Templates erstellt.
+
+    Available templates in pledbrook/lazybones-templates
+
+    afterburnerfx
+    afterburnergfx
+    dropwizard
+    gaelyk
+    gradle-plugin
+    gradle-quickstart
+    groovy-app
+    groovy-lib
+    java-basic
+    lazybones-project
+    nebula-plugin
+    ratpack
+    ratpack-lite
+    spring-boot-actuator
+
+Wem das nicht reicht, oder die Templates nicht den eigenen Anforderungen entsprechen, der kann sich seine eigenen Templates erstellen.
+Dafür gibt es bereits ein eigenes *lazybones-project* Template, das einem beim erstellen, verwalten und deployen unterstützt.
+
+Mehr dazu im [Templates Developer Guide]().
+
+## Projekt erstellen
+
+Möchte man zum Beispiel eine neue groovy-lib erstellen, muss man nur folgenden Befehl in der Konsole eingeben:
+
+    lazybones create groovy-lib my-groovy-lib
+
+    Creating project from template groovy-lib (latest) in 'my-groovy-lib'
+    Define value for 'group' [org.example]: de.calmdevelopment
+    Define value for 'version' [0.1]: 
+    Cleaning up unclosed ZipFile for archive /home/frank/.lazybones/templates/groovy-lib-0.2.zip
+
+    Groovy Library Project Template
+    -------------------------------
+
+    You have just created a Groovy library project. This project can be built using Gradle.
+
+    What all has been already taken care for you:
+
+    * A boilerplate `build.gradle`
+    * Simpler directory structure
+    * Gradle wrapper included - No gradle installation required and great for CI servers too
+    * Travis CI integration ready (a smart `.travis.yml` included)
+    * Bintray maven publish integration for your library (.jar)
+    * Comprehensive `.gitignore` - so that unnecessary files don't get checked in
+    * Uses jcenter (faster) maven repo
+
+    You project looks like :
+
+    ```
+     project/
+    |--+ src/            (put your groovy source files here)
+    |--+ test/           (groovy test files go here)
+    |--+ build.gradle    (build script)
+    |--+ .gitignore      (common patterns already included)
+    |--+ .travis.yml     (travis configuration for continuous integration of your library)
+    |--+ gradle/         (don't worry about it)
+    |--+ gradlew         (on *nix run commands using ./gradlew <command>)
+    |--+ gradlew.bat     (on win run commands using gradlew.bat <command>)
+
+
+
+    Notes:
+
+    * A simpler directory structure is suitable for a library where you don't have webapp/resources etc.
+    * When you need to publish your library to Bintray, set bintrayUser & bintrayKey in gradle.properties
+
+    Project created in my-groovy-lib!
+
+
+Je nach Komplexität des Templates wird man nach den ein oder anderen Informationen gefragt. Diese werden dann verwendet, um die entsprechenden Template-Dateien zu parsen und das Projekt vorzubereiten.
+
+Am Ende bekommt man die README des Templates auf die Konsole geworfen und kann loslegen.
+
+[archetypes]: https://maven.apache.org/guides/mini/guide-creating-archetypes.html
+
+[lazybones]: https://github.com/pledbrook/lazybones
+
+[Peter Ledbrook]: http://www.cacoethes.co.uk/
+
+[gvmtool]: http://gvmtool.net
+
+[Templates Developer Guide]: https://github.com/pledbrook/lazybones/wiki/Template-developers-guide

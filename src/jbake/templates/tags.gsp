@@ -10,6 +10,7 @@
             <% alltags.sort().each { tag ->
                 tag = tag.trim()
                 def postsCount = posts.findAll { post ->
+                    post.status == "published" &&
                     post.tags.contains(tag)
                 }.size()
             %>
@@ -26,22 +27,24 @@
             <hr/>
             <!--<ul>-->
             <% def last_month = null; %>
-            <% tag_posts.each { post -> %>
+            <% tag_posts.each { post ->
+                if ( post.status == 'published' ) {
+            %>
             <% if (last_month) { %>
-            <% if (post.date.format("MMMM yyyy") != last_month) { %>
-        </ul>
-            <h4>${post.date.format("MMMM yyyy")}</h4>
-            <ul>
+                <% if (post.date.format("MMMM yyyy") != last_month) { %>
+                    </ul>
+                    <h4>${post.date.format("MMMM yyyy")}</h4>
+                    <ul>
                 <% } %>
                 <% } else { %>
-                <h4>${post.date.format("MMMM yyyy")}</h4>
-                <ul>
-                    <% } %>
-
-                    <li>${post.date.format("dd")} - <a href="/${post.uri}">${post.title}</a></li>
-                    <% last_month = post.date.format("MMMM yyyy") %>
-                    <% } %>
-                </ul>
+                    <h4>${post.date.format("MMMM yyyy")}</h4>
+                    <ul>
+                <% } %>
+                <li>${post.date.format("dd")} - <a href="/${post.uri}">${post.title}</a></li>
+                <% last_month = post.date.format("MMMM yyyy") %>
+            <% } %>
+            </ul>
+            <% } %>
 
         </div>
     </div>

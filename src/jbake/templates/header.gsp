@@ -11,5 +11,7 @@
     <link rel="stylesheet" href="/css/app.css" />
 
     <script src="/js/vendor/modernizr.js"></script>
+    <script src="/js/app.js"></script>
+
 </head>
-<body onload="prettyPrint()">
+<body onload="prettifyMarkdown();prettyPrint();">

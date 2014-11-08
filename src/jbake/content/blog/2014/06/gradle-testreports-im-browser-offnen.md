@@ -1,0 +1,63 @@
+title=gradle TestReports im Browser öffnen
+date=2014-06-08
+type=post
+tags=gradle
+status=published
+~~~~~~
+
+Mich hat mal interessiert, wie ich eigentlich die generierten TestReports von _gradle_ nach einem Test automatisiert im Browser öffnen kann.
+
+Hmm...ob das immer Sinn macht sei mal dahin gestellt.
+Wenn ich den Test auf einem Jenkins-Server laufen lasse, will ich das sicherlich nicht.
+
+Aber egal. Es funktioniert.
+
+### Task erstellen
+
+_gradle_ bringt ja eine umfassende [DSL](http://www.gradle.org/docs/current/dsl/) mit und diese erlaubt es uns Tasks eines bestimmten Typs zu definieren.
+
+Um ein Programm auszuführen gibt es den Typ [Exec](http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.Exec.html). 
+```
+task openTestReport(type: Exec) {
+    def reportDir = test.reports.html.destination
+
+    executable "firefox"
+    args "-new-tab", "file://${reportDir}/index.html"
+}
+```
+
+### Task in Testprozess integrieren
+
+Mit dem _[finalizer Task](http://www.gradle.org/docs/current/userguide/more_about_tasks.html#N10FC0)_ können wir sicherstellen das der Task in jedem Fall ausgeführt wird.
+
+```
+test.finalizedBy openTestReport
+```
+
+Diesen Schritt kann man dann natürlich weg lassen :)
+
+### Beispiel build.gradle für Java
+
+Für ein simples Java Projekt sieht die _build.gradle_ Datei dann folgendermaßen aus:
+
+```
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task openTestReport(type: Exec) {
+    executable "firefox"
+    args "-new-tab", "file://${workingDir}/build/reports/tests/index.html"
+}
+
+test.finalizedBy openTestReport
+```

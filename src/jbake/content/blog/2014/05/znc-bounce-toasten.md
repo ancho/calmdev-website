@@ -1,0 +1,109 @@
+title=znc bouncer toasten
+date=2014-05-20
+type=post
+tags=uberspace,toast,znc
+status=published
+~~~~~~
+
+Ich wollte mir [znc](http://wiki.znc.in/ZNC) als irc bouncer installieren.
+Es gibt eine sehr gute [Anleitung](https://marvindickhaus.de/2013/08/irc-bouncer-znc-auf-dem-uberspace-nutzen/) für die Installation von znc auf einem uberspace.
+
+Aber ich bin [Debian](http://debian.org) verwöhnt und wollte ähnlich bequem Pakete installieren können. 
+
+uberspace [verweist](http://uberspace.de/dokuwiki/system:toast) auf [toast](http://www.toastball.net/toast/) zum installieren von Software.
+
+Und in der Tat. Es ist ähnlich einfach wie nen Toast backen.
+
+###Erst Toast reinstecken
+
+Ich dachte cool `toast arm znc` und fertig.
+
+```
+$ toast arm znc
+# GET http://freshmeat.net/projects/znc
+# GET http://freecode.com/projects/znc
+# HEAD http://freshmeat.net/urls/6880fe58893b274d7f4886059ec6a511
+# GET http://freecode.com/urls/6880fe58893b274d7f4886059ec6a511
+# GET http://downloads.sourceforge.net/znc/znc-0.096.tar.gz
+# GET http://downloads.sourceforge.net/project/znc/OldFiles/znc/0.096/znc-0.096.tar.gz
+# GET http://heanet.dl.sourceforge.net/project/znc/OldFiles/znc/0.096/znc-0.096.tar.gz
+# GET http://code.google.com/p/znc/downloads/list
+# GET https://www.google.com/accounts/ServiceLogin?service=code&ltmpl=phosting&continue=http%3A%2F%2Fcode.google.com%2Fp%2Fznc%2Fdownloads%2Flist
+# GET https://accounts.google.com/ServiceLogin?service=code&ltmpl=phosting&continue=http%3A%2F%2Fcode.google.com%2Fp%2Fznc%2Fdownloads%2Flist
+# GET https://accounts.google.com/ServiceLogin?service=code&ltmpl=phosting&continue=http%3A%2F%2Fcode.google.com%2Fp%2Fznc%2Fdownloads%2Flist
+# GET https://accounts.google.com/ServiceLogin?service=code&ltmpl=phosting&continue=http%3A%2F%2Fcode.google.com%2Fp%2Fznc%2Fdownloads%2Flist
+# too many HTTP redirects
+# [~/.toast/armed/bin/toast: 1035/1141/1229/2456/2403/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
+# GET http://www.mirrorservice.org/sites/download.sourceforge.net/pub/sourceforge/z/zn/znc/
+# GET http://ftp.gnu.org/gnu/znc/
+# http://ftp.gnu.org/gnu/znc/: HTTP/1.1 404 Not Found
+# [~/.toast/armed/bin/toast: 1025/1141/1229/2456/2403/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
+# GET http://cpan.uwinnipeg.ca/module/znc
+# http://cpan.uwinnipeg.ca/module/znc: HTTP/1.1 404 Not Found
+# [~/.toast/armed/bin/toast: 1025/1141/1229/2456/2403/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
+can't find znc
+[~/.toast/armed/bin/toast: 2493/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
+```
+
+Hmpf. So einfach ist es leider nicht. Naja. Schwerer wurde es aber rauch nicht. Ein Blick in die manpage lohnt sich jedesmal.
+
+Erstmal das Paket bekannt machen.
+
+```
+$ toast add http://znc.in/releases/znc-1.4.tar.gz
+mkdir ~/.toast/pkg/znc
+mkdir ~/.toast/pkg/znc/v1.4
+# creating ~/.toast/pkg/znc/v1.4/url.tmp
+mv ~/.toast/pkg/znc/v1.4/url.tmp ~/.toast/pkg/znc/v1.4/url
+```
+
+Ok. Schön. Toast ist drinne und Knopf runter gedrückt.
+
+```
+$ toast status
+toast
+  version 1.486: stored
+    urls:
+      http://www.toastball.net/toast/toast-1.486.tar.gz
+    build 1: armed
+znc
+  version 1.4
+    urls:
+      http://znc.in/releases/znc-1.4.tar.gz
+```
+
+### Dann toasten
+
+So. Nächster Anlauf.
+
+```
+$ toast arm znc
+mkdir ~/.toast/pkg/znc/v1.4/archive.tmp
+# fetching http://znc.in/releases/znc-1.4.tar.gz to ~/.toast/pkg/znc/v1.4/archive.tmp/znc-1.4.tar.gz
+mv ~/.toast/pkg/znc/v1.4/archive.tmp ~/.toast/pkg/znc/v1.4/archive
+export CCACHE_DIR=~/.ccache
+mkdir ~/.toast/pkg/znc/v1.4/1
+  # toast 1.486 building znc version 1.4 build 1
+  # /usr/bin/perl ~/.toast/armed/bin/toast 5.010001 linux
+  lsb_release -a
+  # warning: exec lsb_release -a: Datei oder Verzeichnis nicht gefunden; ....
+....
+....
+```
+
+Und dann geht' s los. Das Paket wird heruntergeladen, entpackt, gebaut, an die richtige stelle gepackt, verlinkt und ich bin mir sicher da wird noch andere schnickschnack zum Verwalten des Pakets gemacht.
+
+Das alles gibt der CPU genug zu tun für ne weile.
+
+### Toast essen
+
+Im Anschluss kann man znc verwenden. 
+
+```
+$ znc -v
+ZNC 1.4 - http://znc.in
+IPv6: yes, SSL: yes, DNS: threads
+```
+
+Ich mag toast!
+
