@@ -14,25 +14,29 @@ apply plugin: 'war'
 apply plugin: 'me.champeau.jbake'
 apply plugin: 'org.akhikhl.gretty'
 
+apply from: 'gradle/environment.gradle'
+
 repositories {
   mavenLocal()
   jcenter()
 }
 
+
 gretty {
-  httpPort = 8085
-  contextPath = "/blog/"
+  httpPort = config.server.port
+  contextPath = config.server.contextPath
 }
 
 jbake{
   version = "2.3.2"
-  asciidoctorjVersion = "1.5.1"
+  asciidoctorjVersion = "1.5.2"
   configuration['render.tags'] = true
-  configuration['site.host'] = "http://localhost:8085"
-  configuration['site.contextPath'] = "/blog/"
+  configuration['site.host'] = config.server.url
+  configuration['site.contextPath'] = config.server.contextPath
 }
 
 task copyBaked(type: Copy, dependsOn: 'jbake'){
   from "$buildDir/jbake"
   into "$buildDir/inplaceWebapp"
 }
+
