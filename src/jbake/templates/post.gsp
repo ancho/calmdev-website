@@ -24,7 +24,7 @@
                                     <% content.tags.each { tag ->
                                         tag = tag.trim()
                                     %>
-                                    <span><a href="/tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
+                                    <span><a href="${config.site_contextPath}tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
                                     <% } %>
                                 </p>
                                 <hr/>

@@ -21,13 +21,15 @@
                         <div class="small-9 medium-11 large-11 columns">
 
                             <div>
-                                <h1><a href="${post.uri}">${post.title}</a></h1>
+                                <h1><a href="${config.site_contextPath}${post.uri}">${post.title}</a></h1>
 
                                 <p>
-                                    <% post.tags.each { tag ->
+                                    <% 
+                                        def contextPath = "${config.site_contextPath}"
+                                        post.tags.each { tag ->
                                         tag = tag.trim()
                                     %>
-                                        <span><a href="/tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
+                                        <span><a href="${contextPath}tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
                                     <% } %>
                                 </p>
                                 <hr/>
@@ -50,7 +52,7 @@
     <div class="row">
         <div class="small-12 columns">
             <hr/>
-            Older post are available in the <a href="${config.archive_file}">archive</a>
+            Older post are available in the <a href="${config.site_contextPath}${config.archive_file}">archive</a>
         </div>
     </div>
 

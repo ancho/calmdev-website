@@ -5,7 +5,7 @@ tags=gvmtool,bash
 status=published
 ~~~~~~
 
-Recently I installed [jbake]() with *gvm* and was wondering why it wasn't accessible within my shell after resourcing my *.bashrc*.
+Recently I installed [jbake][] with *gvm* and was wondering why it wasn't accessible within my shell after resourcing my *.bashrc*.
 
 # The problem
 There is this line in my *.bash_profile* 
@@ -25,7 +25,7 @@ To update your *PATH* variable execute the following commands
 
 
 But I'm still wondering. 
-If I close my shell and open a new terminal window, the phenomenon is the same. [jbake]() is still not accessible.
+If I close my shell and open a new terminal window, the phenomenon is the same. [jbake][] is still not accessible.
 
 Yet I don't get it. Maybe I'm still to tired. I'll do some further investigation.
 

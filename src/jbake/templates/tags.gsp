@@ -14,7 +14,7 @@
                     post.tags.contains(tag)
                 }.size()
             %>
-            <span><a href="/tags/${tag.replace(' ', '-')}.html" class="label">${tag} <span class="badge">${postsCount}</span></a></span>
+            <span><a href="${config.site_contextPath}tags/${tag.replace(' ', '-')}.html" class="label">${tag} <span class="badge">${postsCount}</span></a></span>
             <% } %>
         </div>
     </div>
@@ -40,7 +40,7 @@
                     <h4>${post.date.format("MMMM yyyy")}</h4>
                     <ul>
                 <% } %>
-                <li>${post.date.format("dd")} - <a href="/${post.uri}">${post.title}</a></li>
+                <li>${post.date.format("dd")} - <a href="${config.site_contextPath}${post.uri}">${post.title}</a></li>
                 <% last_month = post.date.format("MMMM yyyy") %>
             <% } %>
             </ul>

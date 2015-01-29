@@ -19,7 +19,7 @@
                         <ul>
                     <% }%>
 
-                    <li>${post.date.format("dd")} - <a href="${post.uri}">${post.title}</a></li>
+                    <li>${post.date.format("dd")} - <a href="${config.site_contextPath}${post.uri}">${post.title}</a></li>
                     <%last_month = post.date.format("MMMM yyyy")%>
                 <%}%>
             </ul>

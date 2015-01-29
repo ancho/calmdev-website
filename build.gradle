@@ -6,13 +6,33 @@ buildscript {
 
   dependencies {
     classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
+    classpath 'org.akhikhl.gretty:gretty:+'
   }
 }
 
+apply plugin: 'war'
 apply plugin: 'me.champeau.jbake'
+apply plugin: 'org.akhikhl.gretty'
+
+repositories {
+  mavenLocal()
+  jcenter()
+}
+
+gretty {
+  httpPort = 8085
+  contextPath = "/blog/"
+}
 
 jbake{
   version = "2.3.2"
   asciidoctorjVersion = "1.5.1"
   configuration['render.tags'] = true
+  configuration['site.host'] = "http://localhost:8085"
+  configuration['site.contextPath'] = "/blog/"
+}
+
+task copyBaked(type: Copy, dependsOn: 'jbake'){
+  from "$buildDir/jbake"
+  into "$buildDir/inplaceWebapp"
 }

@@ -8,10 +8,10 @@
 
         <div class="top-bar-section">
             <ul class="nav navbar-nav">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/${config.archive_file}">Archive</a></li>
-                <li><a href="/${config.feed_file}">Subscribe</a></li>
+                <li><a href="${config.site_contextPath}index.html">Home</a></li>
+                <li><a href="${config.site_contextPath}about.html">About</a></li>
+                <li><a href="${config.site_contextPath}${config.archive_file}">Archive</a></li>
+                <li><a href="${config.site_contextPath}${config.feed_file}">Subscribe</a></li>
             </ul>
         </div>
     </nav>
