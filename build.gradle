@@ -1,19 +1,21 @@
 buildscript {
   repositories {
+      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
       mavenLocal()
       jcenter()
   }
 
   dependencies {
-    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1'
     classpath 'org.akhikhl.gretty:gretty:+'
+    classpath 'org.hidetake:gradle-ssh-plugin:1.0.1'
   }
 }
 
 apply plugin: 'war'
 apply plugin: 'me.champeau.jbake'
 apply plugin: 'org.akhikhl.gretty'
-
+apply from: 'gradle/publish.gradle'
 apply from: 'gradle/environment.gradle'
 
 repositories {

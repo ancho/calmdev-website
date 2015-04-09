@@ -1,0 +1,18 @@
+apply plugin: 'org.hidetake.ssh'
+
+remotes {
+    test {
+        host = 'zweiblum'
+        user = 'frank'
+        identity = file("/home/frank/.ssh/id_dsa")
+    }
+}
+    
+task publish() << {
+  ssh.run {
+    session(remotes.test) {
+      put files { file("$buildDir/${jbake.destDirName}").listFiles() } , "/var/www/blog"
+    }
+  }
+
+} 
