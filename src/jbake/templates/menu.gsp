@@ -1,4 +1,13 @@
-<div class="fixed contain-to-grid">
+<div class="title-box">
+    <div class="row">
+        <div class="small-8 small-centered small-text-center columns">
+        <h1>calmdevelopment</h1>
+        <p>Keep clam and code. Or do some other stuff.</p>
+        </div>
+    </div>
+</div>
+
+<div class="sticky contain-to-grid">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name"><!-- No title --></li>

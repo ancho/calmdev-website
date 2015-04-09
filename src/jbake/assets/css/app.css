@@ -53,3 +53,16 @@ article.panel {
     padding-left: 3px;
     padding-right: 3px;
 }
+
+.title-box {
+    padding: 48px 60px;
+    background-color: rgba(66,139,202,0.8);
+}
+
+.title-box h1 {
+    color: snow;
+}
+
+.title-box p {
+    color: #e8e8e8;
+}
