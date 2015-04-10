@@ -35,6 +35,7 @@ jbake{
   configuration['render.tags'] = true
   configuration['site.host'] = config.server.url
   configuration['site.contextPath'] = config.server.contextPath
+  configuration['foundation.version'] = "5.5.1"
 }
 
 task copyBaked(type: Copy, dependsOn: 'jbake'){
