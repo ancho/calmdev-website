@@ -23,6 +23,10 @@ body, h1, h2, h3, h4, h5, h6, p, .label, .top-bar-section ul li > a {
     font-family: OpenSans;
 }
 
+.top-bar-section ul li > a {
+    line-height: 39px;
+}
+
 pre > code {
     font-family: SourceCodePro;
 }
@@ -108,6 +112,18 @@ article.wrap {
 .title-box {
     background: url(../img/curl-web-scale.jpg) center no-repeat;
     background-size: cover;
+}
+
+.title-contact {
+    font-size: 3em;
+}
+
+.title-contact a {
+    color: snow;
+}
+
+.title-contact a:hover {
+    color: #e8e8e8;
 }
 
 .title-content {

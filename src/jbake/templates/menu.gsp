@@ -4,6 +4,10 @@
             <div class="title-content">
                 <h1>Calmdevelopment</h1>
                 <p>Keep calm and code. Or do some other stuff.</p>
+                <p class="title-contact">
+                    <a href="https://twitter.com/knarfancho"><i class="foundicon-twitter"></i></a>
+                    <a href="https://github.com/ancho"><i class="foundicon-github"></i></a>
+                </p>
             </div>
         </div>
         <div class="sticky contain-to-grid">
@@ -14,14 +18,14 @@
                     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
                 </ul>
 
-                <div class="top-bar-section">
-                    <ul class="nav navbar-nav">
+                <section class="top-bar-section">
+                    <ul class="left">
                         <li><a href="${config.site_contextPath}index.html">Home</a></li>
                         <li><a href="${config.site_contextPath}about.html">About</a></li>
                         <li><a href="${config.site_contextPath}${config.archive_file}">Archive</a></li>
                         <li><a href="${config.site_contextPath}${config.feed_file}">Subscribe</a></li>
                     </ul>
-                </div>
+                </section>
             </nav>
         </div>
     </div>
