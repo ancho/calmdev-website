@@ -4,7 +4,7 @@ remotes {
     test {
         host = 'zweiblum'
         user = 'frank'
-        identity = file("/home/frank/.ssh/id_dsa")
+        identity = file("/home/frank/.ssh/id_rsa")
     }
 }
     
