@@ -10,7 +10,7 @@ Es gibt eine sehr gute https://marvindickhaus.de/2013/08/irc-bouncer-znc-auf-dem
 
 Aber ich bin http://debian.org[Debian] verwöhnt und wollte ähnlich bequem Pakete installieren können.
 
-uberspace http://uberspace.de/dokuwiki/system:toast[verweist] auf http://www.toastball.net/toast/[toast] zum installieren von Software.
+uberspace link:http://uberspace.de/dokuwiki/system\:toast[verweist] auf http://www.toastball.net/toast/[toast] zum installieren von Software.
 
 Und in der Tat. Es ist ähnlich einfach wie nen Toast backen.
 

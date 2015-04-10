@@ -32,4 +32,4 @@ Folgende Zeilen in die .vimrc und man kann bequem mit `<Strg> + Pfeiltasten` nav
 ## Links
 
 * http://vimdoc.sourceforge.net/htmldoc/map.html[map manpage]
-* http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29[Mapping Tutorial]
+* link:http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29[Mapping Tutorial]

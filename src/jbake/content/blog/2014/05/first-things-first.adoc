@@ -9,7 +9,7 @@ Ok. Ich gebe http://uperspace.de[uberspace] mal eine chance. Die Ideologie dahin
 
 Der upload taugt mal gar nichts. Da ist uberspace die Rettung :)
 
-Ein Blog erschien mir am sinnvollsten. (http://ghost.org[ghost] finde ich sehr spannend. Ich bin gespannt was daraus wird. Und eine sehr einfache [Anleitung](http://blog.christophvoigt.com/how-to-setup-ghost-on-uberspace-de/) für das Einrichten auf uberspace gibt es freundlicherweise auch.
+Ein Blog erschien mir am sinnvollsten. http://ghost.org[ghost] finde ich sehr spannend. Ich bin gespannt was daraus wird. Und eine sehr einfache http://blog.christophvoigt.com/how-to-setup-ghost-on-uberspace-de/[Anleitung] für das Einrichten auf uberspace gibt es freundlicherweise auch.
 
 Mir fehlte bei diesem Artikel das Absichern des Adminbereichs.
 

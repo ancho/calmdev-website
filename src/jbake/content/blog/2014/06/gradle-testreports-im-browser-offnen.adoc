@@ -16,7 +16,7 @@ Aber egal. Es funktioniert.
 
 _gradle_ bringt ja eine umfassende http://www.gradle.org/docs/current/dsl/[DSL] mit und diese erlaubt es uns Tasks eines bestimmten Typs zu definieren.
 
-Um ein Programm auszuführen gibt es den Typ [Exec](http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.Exec.html). 
+Um ein Programm auszuführen gibt es den Typ http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.Exec.html[Exec].
 
 [source,groovy]
 ----
