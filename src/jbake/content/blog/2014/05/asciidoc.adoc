@@ -9,7 +9,7 @@ Ich suche im Moment nach einem geeignetem Tool, um kollaborativ Dokumentation f�
 
 Von [asciidoctor][] habe ich jetzt schon mehrfach gelesen. Und da es ein [Plugin][] f체r gradle gibt, kommt es f체r mich in eine n채here Auswahl f체r eine Betrachtung.
 
-## Anforderungen
+== Anforderungen
 
 * ***einfache Syntax***
   
@@ -46,7 +46,7 @@ Von [asciidoctor][] habe ich jetzt schon mehrfach gelesen. Und da es ein [Plugin
   - html
   - pdf
 
-## Links
+== Links
 * [asciidoctor homepage][asciidoctor]
 * [asciidoctor gradle plugin][Plugin]
 * [David Allen 체ber asciidoc](https://plus.google.com/114112334290393746697/posts/CdXJt6hVn5A)

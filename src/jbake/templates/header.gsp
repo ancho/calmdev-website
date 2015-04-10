@@ -15,4 +15,4 @@
     <script src="${config.site_contextPath}js/app.js"></script>
 
 </head>
-<body onload="prettifyMarkdown();prettyPrint();">
+<body onload="prettyPrint();">

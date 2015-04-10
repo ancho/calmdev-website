@@ -141,3 +141,7 @@ article.wrap {
     font-family: OrbitronMedium;
     color: #e8e8e8;
 }
+
+.listingblock pre:not(.highlight) {
+    background-color: #b3b3b3;
+}

@@ -5,22 +5,22 @@ tags=uberspace,htaccess
 status=published
 ~~~~~~
 
-Ok. Ich gebe [uberspace](http://uperspace.de) mal eine chance. Die Ideologie dahinter finde ich super. Das Konzept sowieso. Und nur mit meinem privaten Server herumspielen wird auf dauer auch anstrengend. Dazu kommt die wirklich beknackte Anbindung die ich im Moment habe.
+Ok. Ich gebe http://uperspace.de[uberspace] mal eine chance. Die Ideologie dahinter finde ich super. Das Konzept sowieso. Und nur mit meinem privaten Server herumspielen wird auf dauer auch anstrengend. Dazu kommt die wirklich beknackte Anbindung die ich im Moment habe.
 
 Der upload taugt mal gar nichts. Da ist uberspace die Rettung :)
 
-Ein Blog erschien mir am sinnvollsten. [ghost](http://ghost.org) finde ich sehr spannend. Ich bin gespannt was daraus wird. Und eine sehr einfache [Anleitung](http://blog.christophvoigt.com/how-to-setup-ghost-on-uberspace-de/) für das Einrichten auf uberspace gibt es freundlicherweise auch.
+Ein Blog erschien mir am sinnvollsten. (http://ghost.org[ghost] finde ich sehr spannend. Ich bin gespannt was daraus wird. Und eine sehr einfache [Anleitung](http://blog.christophvoigt.com/how-to-setup-ghost-on-uberspace-de/) für das Einrichten auf uberspace gibt es freundlicherweise auch.
 
 Mir fehlte bei diesem Artikel das Absichern des Adminbereichs.
 
-### https redirects
+== https redirects
 
 Prinzipiell wollte ich alle Anfragen die über http kommen direkt nach https weiterleiten.
 
 Und alles was dann ankommt soll direkt an ghost weitergeleitet werden.
 Die fertige *.htaccess* sieht dann folgendermaßen aus:
 
-```
+----
 RewriteEngine On
 
 # Redirect http to https
@@ -30,8 +30,8 @@ RewriteRule ^(.*) https://%{SERVER_NAME}/$1 [R,L]
 # Proxy https requests to ghost
 RewriteCond %{SERVER_PORT} ^443$
 RewriteRule ^(.*) http://localhost:<GHOST_PORT>/$1 [P]
-```
+----
 
-***GHOST_PORT*** ist der Port unter dem meine ghost instanz lauscht.
+**GHOST_PORT** ist der Port unter dem meine ghost instanz lauscht.
 
 That's all. Funzt wunderbar.

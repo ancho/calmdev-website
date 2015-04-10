@@ -5,20 +5,20 @@ tags=uberspace,toast,znc
 status=published
 ~~~~~~
 
-Ich wollte mir [znc](http://wiki.znc.in/ZNC) als irc bouncer installieren.
-Es gibt eine sehr gute [Anleitung](https://marvindickhaus.de/2013/08/irc-bouncer-znc-auf-dem-uberspace-nutzen/) für die Installation von znc auf einem uberspace.
+Ich wollte mir http://wiki.znc.in/ZNC[znc] als irc bouncer installieren.
+Es gibt eine sehr gute https://marvindickhaus.de/2013/08/irc-bouncer-znc-auf-dem-uberspace-nutzen/[Anleitung] für die Installation von znc auf einem uberspace.
 
-Aber ich bin [Debian](http://debian.org) verwöhnt und wollte ähnlich bequem Pakete installieren können. 
+Aber ich bin http://debian.org[Debian] verwöhnt und wollte ähnlich bequem Pakete installieren können.
 
-uberspace [verweist](http://uberspace.de/dokuwiki/system:toast) auf [toast](http://www.toastball.net/toast/) zum installieren von Software.
+uberspace http://uberspace.de/dokuwiki/system:toast[verweist] auf http://www.toastball.net/toast/[toast] zum installieren von Software.
 
 Und in der Tat. Es ist ähnlich einfach wie nen Toast backen.
 
-###Erst Toast reinstecken
+== Erst Toast reinstecken
 
 Ich dachte cool `toast arm znc` und fertig.
 
-```
+----
 $ toast arm znc
 # GET http://freshmeat.net/projects/znc
 # GET http://freecode.com/projects/znc
@@ -43,23 +43,23 @@ $ toast arm znc
 # [~/.toast/armed/bin/toast: 1025/1141/1229/2456/2403/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
 can't find znc
 [~/.toast/armed/bin/toast: 2493/2570/2790/4241/4401/4595/5991/5991/6008/6016/6854 v1.486]
-```
+----
 
 Hmpf. So einfach ist es leider nicht. Naja. Schwerer wurde es aber rauch nicht. Ein Blick in die manpage lohnt sich jedesmal.
 
 Erstmal das Paket bekannt machen.
 
-```
+----
 $ toast add http://znc.in/releases/znc-1.4.tar.gz
 mkdir ~/.toast/pkg/znc
 mkdir ~/.toast/pkg/znc/v1.4
 # creating ~/.toast/pkg/znc/v1.4/url.tmp
 mv ~/.toast/pkg/znc/v1.4/url.tmp ~/.toast/pkg/znc/v1.4/url
-```
+----
 
 Ok. Schön. Toast ist drinne und Knopf runter gedrückt.
 
-```
+----
 $ toast status
 toast
   version 1.486: stored
@@ -70,13 +70,13 @@ znc
   version 1.4
     urls:
       http://znc.in/releases/znc-1.4.tar.gz
-```
+----
 
-### Dann toasten
+== Dann toasten
 
 So. Nächster Anlauf.
 
-```
+----
 $ toast arm znc
 mkdir ~/.toast/pkg/znc/v1.4/archive.tmp
 # fetching http://znc.in/releases/znc-1.4.tar.gz to ~/.toast/pkg/znc/v1.4/archive.tmp/znc-1.4.tar.gz
@@ -89,21 +89,21 @@ mkdir ~/.toast/pkg/znc/v1.4/1
   # warning: exec lsb_release -a: Datei oder Verzeichnis nicht gefunden; ....
 ....
 ....
-```
+----
 
 Und dann geht' s los. Das Paket wird heruntergeladen, entpackt, gebaut, an die richtige stelle gepackt, verlinkt und ich bin mir sicher da wird noch andere schnickschnack zum Verwalten des Pakets gemacht.
 
 Das alles gibt der CPU genug zu tun für ne weile.
 
-### Toast essen
+== Toast essen
 
 Im Anschluss kann man znc verwenden. 
 
-```
+----
 $ znc -v
 ZNC 1.4 - http://znc.in
 IPv6: yes, SSL: yes, DNS: threads
-```
+----
 
 Ich mag toast!
 

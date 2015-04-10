@@ -12,35 +12,39 @@ Wenn ich den Test auf einem Jenkins-Server laufen lasse, will ich das sicherlich
 
 Aber egal. Es funktioniert.
 
-### Task erstellen
+== Task erstellen
 
-_gradle_ bringt ja eine umfassende [DSL](http://www.gradle.org/docs/current/dsl/) mit und diese erlaubt es uns Tasks eines bestimmten Typs zu definieren.
+_gradle_ bringt ja eine umfassende http://www.gradle.org/docs/current/dsl/[DSL] mit und diese erlaubt es uns Tasks eines bestimmten Typs zu definieren.
 
 Um ein Programm auszuführen gibt es den Typ [Exec](http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.Exec.html). 
-```
+
+[source,groovy]
+----
 task openTestReport(type: Exec) {
     def reportDir = test.reports.html.destination
 
     executable "firefox"
     args "-new-tab", "file://${reportDir}/index.html"
 }
-```
+----
 
-### Task in Testprozess integrieren
+== Task in Testprozess integrieren
 
-Mit dem _[finalizer Task](http://www.gradle.org/docs/current/userguide/more_about_tasks.html#N10FC0)_ können wir sicherstellen das der Task in jedem Fall ausgeführt wird.
+Mit dem _http://www.gradle.org/docs/current/userguide/more_about_tasks.html#N10FC0[finalizer Task]_ können wir sicherstellen das der Task in jedem Fall ausgeführt wird.
 
-```
+[source,groovy]
+----
 test.finalizedBy openTestReport
-```
+----
 
 Diesen Schritt kann man dann natürlich weg lassen :)
 
-### Beispiel build.gradle für Java
+== Beispiel build.gradle für Java
 
 Für ein simples Java Projekt sieht die _build.gradle_ Datei dann folgendermaßen aus:
 
-```
+[source,groovy]
+----
 apply plugin: 'java'
 
 sourceCompatibility = 1.7
@@ -60,4 +64,4 @@ task openTestReport(type: Exec) {
 }
 
 test.finalizedBy openTestReport
-```
+----

@@ -1,0 +1,14 @@
+title=Ersatz für grails-user Mailingliste
+date=2014-05-12
+type=post
+tags=grails
+status=published
+~~~~~~
+
+Am 9.5. wurde bekannt gemacht, dass die **grails-user** Mailingliste eingestellt wird. Ab diesem Tag wird die Mailingliste auf https://stackoverflow.com/questions/tagged/grails[stackoverflow.com] unter dem Tag *grails* weitergeführt.
+
+Für weitere Diskussionen rund um http://grails.org[grails] gibt es nun eine https://groups.google.com/forum/#!forum/grails-dev-discuss[google Gruppe].
+
+Hier die http://grails.1312388.n4.nabble.com/Deprecating-The-Grails-Mailing-Lists-td4656736.html[Mail] mit dem Hintergrund zu dieser Entscheidung und der https://grails.org/Mailing+lists[Hinweis] auf der Webseite.
+
+Das http://grails.1312388.n4.nabble.com/Grails-user-f1312389.html[Archiv] wird weiterhin unter Nabble verfügbar sein.

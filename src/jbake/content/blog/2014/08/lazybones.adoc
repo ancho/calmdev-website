@@ -4,34 +4,40 @@ type=post
 tags=lazybones,maven,archetypes,templates
 status=published
 ~~~~~~
+:uri-lazybones: https://lazybones.org
+:uri-gvmtool: https://gvmtool.net[gvm]
+:uri-pledbrook: http://www.cacoethes.co.uk/[Peter Ledbrook]
+:uri-template-guide: https://github.com/pledbrook/lazybones/wiki/Template-developers-guide[Templates Developer Guide]
+:uri-archetypes: https://maven.apache.org/guides/mini/guide-creating-archetypes.html[archetypes]
 
+Du liebst gradle, aber vermisst maven {uri-archetypes}??
 
-
-
-Du liebst gradle, aber vermisst maven [archetypes]()??
-
-## [lazybones]() to the rescue!!
-
-lazybones ist der knaller. Ein Commandlinetool, welches einem erlaubt aus einer vielzahl von Projekttemplates, das nächste Projekt oder Modul, im Handumdrehen erstellen zu lassen.
+== lazybones to the rescue!!
+{uri-lazybones}[lazybones] ist der knaller. Ein Commandlinetool, welches einem erlaubt aus einer vielzahl von Projekttemplates, das nächste Projekt oder Modul, im Handumdrehen erstellen zu lassen.
 
 Dazu greift es auf bintray zu, saugt sich das Template aus einem Repository (natürlich konfigurierbar), führt ein *lazybones.groovy* Skript aus, welches in dem Template enthalten ist und richtet einem das Projekt oder Modul ein.
 
 Hört sich simpel an. Ist es auch.
 
-## Installation
+== Installation
 
-Am einfachsten installiert man lazybones mit [gvmtool]()
+Am einfachsten installiert man lazybones mit {uri-gvmtool}
 
+----
     gvm install lazybones
-    
-## Templates anzeigen
+----
+
+== Templates anzeigen
 
 Eine Liste verfügbarer Templates erhält man mit dem Befehl
 
+----
     lazybones list
-    
-[Peter Ledbrook]() und andere haben schon ein paar Templates erstellt.
+----
 
+{uri-pledbrook} und andere haben schon ein paar Templates erstellt.
+
+----
     Available templates in pledbrook/lazybones-templates
 
     afterburnerfx
@@ -48,21 +54,23 @@ Eine Liste verfügbarer Templates erhält man mit dem Befehl
     ratpack
     ratpack-lite
     spring-boot-actuator
+----
 
 Wem das nicht reicht, oder die Templates nicht den eigenen Anforderungen entsprechen, der kann sich seine eigenen Templates erstellen.
 Dafür gibt es bereits ein eigenes *lazybones-project* Template, das einem beim erstellen, verwalten und deployen unterstützt.
 
-Mehr dazu im [Templates Developer Guide]().
+Mehr dazu im {uri-template-guide}
 
-## Projekt erstellen
+== Projekt erstellen
 
 Möchte man zum Beispiel eine neue groovy-lib erstellen, muss man nur folgenden Befehl in der Konsole eingeben:
 
+----
     lazybones create groovy-lib my-groovy-lib
 
     Creating project from template groovy-lib (latest) in 'my-groovy-lib'
     Define value for 'group' [org.example]: de.calmdevelopment
-    Define value for 'version' [0.1]: 
+    Define value for 'version' [0.1]:
     Cleaning up unclosed ZipFile for archive /home/frank/.lazybones/templates/groovy-lib-0.2.zip
 
     Groovy Library Project Template
@@ -101,18 +109,13 @@ Möchte man zum Beispiel eine neue groovy-lib erstellen, muss man nur folgenden 
     * When you need to publish your library to Bintray, set bintrayUser & bintrayKey in gradle.properties
 
     Project created in my-groovy-lib!
-
+----
 
 Je nach Komplexität des Templates wird man nach den ein oder anderen Informationen gefragt. Diese werden dann verwendet, um die entsprechenden Template-Dateien zu parsen und das Projekt vorzubereiten.
 
 Am Ende bekommt man die README des Templates auf die Konsole geworfen und kann loslegen.
 
-[archetypes]: https://maven.apache.org/guides/mini/guide-creating-archetypes.html
 
-[lazybones]: https://github.com/pledbrook/lazybones
 
-[Peter Ledbrook]: http://www.cacoethes.co.uk/
 
-[gvmtool]: http://gvmtool.net
 
-[Templates Developer Guide]: https://github.com/pledbrook/lazybones/wiki/Template-developers-guide

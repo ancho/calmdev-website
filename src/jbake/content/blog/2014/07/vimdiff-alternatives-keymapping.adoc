@@ -9,23 +9,27 @@ Schon mal versucht mit vimdiff eine Datei zu diffen und zu mergen?
 
 Das default keymapping mit deutschem Tastaturlayout ist ein wenig anstrengend für meinen Geschmack.
 
+----
     do - diff obtain
     dp - diff put
     [c - previous difference
     ]c - next difference
+----
 
 Ernsthaft, da bekommt man einen Krampf.
 Dann mal lieber das mapping anpassen.
 
 Folgende Zeilen in die .vimrc und man kann bequem mit `<Strg> + Pfeiltasten` navigieren.
 
+----
     " vimdiff mapping redefinition
     nnoremap <C-Left> do
     nnoremap <C-Right> dp
     nnoremap <C-Up> [c
     nnoremap <C-Down> ]c
+----
 
 ## Links
 
-* [map manpage](http://vimdoc.sourceforge.net/htmldoc/map.html) 
-* [Mapping Tutorial](http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29)
+* http://vimdoc.sourceforge.net/htmldoc/map.html[map manpage]
+* http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29[Mapping Tutorial]

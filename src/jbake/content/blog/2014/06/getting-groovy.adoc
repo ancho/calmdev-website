@@ -1,0 +1,19 @@
+title=getting groovy
+date=2014-06-22
+type=post
+tags=asciidoc,groovy,tutorial,gradle
+status=published
+~~~~~~
+
+http://groovy-lang.org/[groovy] ist so eine schicke Programmiersprache.
+
+Hubert Klein Ikkink alias http://www.mrhaki.com/[mrhaki] hat mal eben ein Intensivtutorial veröffentlicht mit dem schönen Namen http://gr8labs.org/getting-groovy[getting-groovy].
+
+Ich bin nur kurz drübergeflogen, aber es deckt eigentlich alle Facetten ab, die groovy als Sprache zu bieten hat. Mit äußerst anschaulichen Codebeispielen.
+
+Den Code findet man auf github https://github.com/gr8labsorg/getting-groovy
+und ist gleichzeitig ein schönes Beispiel für ein http://asciidoctor.org/[asciidoctor] Projekt das mit http://gradle.org[gradle] verwaltet wird.
+
+Vielen Dank mrhaki!
+
+
