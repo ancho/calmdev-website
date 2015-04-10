@@ -1,3 +1,32 @@
+@font-face {
+    font-family: OrbitronBold;
+    src: url(../fonts/orbitron-bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: OrbitronMedium;
+    src: url(../fonts/orbitron-medium.otf);
+}
+
+@font-face {
+    font-family: SourceCodePro;
+    src: url(../fonts/SourceCodePro-Regular.otf);
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, .label, .top-bar-section ul li > a {
+    font-family: OpenSans;
+}
+
+pre > code {
+    font-family: SourceCodePro;
+}
+
 header time {
     color: #6F6F6F;
     line-height: 0;
@@ -82,14 +111,17 @@ article.wrap {
 }
 
 .title-content {
+
     padding: 60px 0px;
     background: rgba(255,255,255,.2);
 }
 
 .title-content h1 {
+    font-family: OrbitronBold;
     color: snow;
 }
 
 .title-content p {
+    font-family: OrbitronMedium;
     color: #e8e8e8;
 }

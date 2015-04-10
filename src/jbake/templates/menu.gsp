@@ -2,8 +2,8 @@
     <div class="small-12 large-12 middle-12 small-text-center large-text-center middle-text-center columns">
         <div class="title-box">
             <div class="title-content">
-                <h1>calmdevelopment</h1>
-                <p>Keep clam and code. Or do some other stuff.</p>
+                <h1>Calmdevelopment</h1>
+                <p>Keep calm and code. Or do some other stuff.</p>
             </div>
         </div>
         <div class="sticky contain-to-grid">
