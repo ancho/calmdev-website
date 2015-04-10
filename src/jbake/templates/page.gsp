@@ -3,7 +3,7 @@
 <main>
     <div class="row">
         <div class="small-12 columns">
-            <section>
+            <section class="wrap">
                 <header>
                     <h1>${content.title}</h1>
 
@@ -13,6 +13,7 @@
 
                     <hr/>
                 </header>
+
                 ${content.body}
             </section>
         </div>

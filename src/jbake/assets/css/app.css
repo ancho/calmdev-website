@@ -7,8 +7,29 @@ header hr {
     margin-top: 0.5em;
 }
 
-article.panel {
-    margin-top: 5px;
+a.label {
+    font-size: 0.8em;
+}
+
+a.label:hover {
+    color: #abd1f8;
+}
+
+.wrap {
+    border: solid 1px #d8d8d8;
+    border-radius: 5px;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background-color: #f8f8f8;
+    color: #333333;
+}
+
+article.wrap {
+    margin-bottom: 5px;
+}
+
+.row, .contain-to-grid .top-bar {
+    max-width: 80rem;
 }
 
 .termin {
@@ -54,15 +75,21 @@ article.panel {
     padding-right: 3px;
 }
 
+
 .title-box {
-    padding: 48px 60px;
-    background-color: rgba(66,139,202,0.8);
+    background: url(../img/curl-web-scale.jpg) center no-repeat;
+    background-size: cover;
 }
 
-.title-box h1 {
+.title-content {
+    padding: 60px 0px;
+    background: rgba(255,255,255,.2);
+}
+
+.title-content h1 {
     color: snow;
 }
 
-.title-box p {
+.title-content p {
     color: #e8e8e8;
 }

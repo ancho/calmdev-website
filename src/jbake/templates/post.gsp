@@ -3,7 +3,7 @@
 <main>
     <div class="row">
         <div class="small-12 columns">
-            <article>
+            <article class="wrap">
                 <header>
                     <div class="row">
                         <div class="small-3 medium-1 large-1 columns">

@@ -4,8 +4,8 @@
 
     <% published_posts[0..2].each { post -> %>
     <div class="row">
-        <div class="small-12 columns">
-            <article class="panel">
+        <div class="small-12 middle-12 large-12 columns">
+            <article class="wrap">
                 <header>
                     <div class="row">
                         <div class="small-3 medium-1 large-1 columns">

@@ -3,7 +3,7 @@
 	
 	<div class="row">
         <div class="small-12 columns">
-
+            <section class="wrap">
             <h1>Blog Archive</h1>
             <!--<ul>-->
                 <%def last_month=null;%>
@@ -23,6 +23,7 @@
                     <%last_month = post.date.format("MMMM yyyy")%>
                 <%}%>
             </ul>
+            </section>
 
         </div>
 	</div>
