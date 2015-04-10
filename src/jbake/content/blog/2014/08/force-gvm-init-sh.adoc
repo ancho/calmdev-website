@@ -10,6 +10,7 @@ Recently I installed http://jbake.org/[jbake] with *gvm* and was wondering why i
 == The problem
 There is this line in my *.bash_profile* 
 
+[source, bash]
 ----
 [[ -s "/home/frank/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "/home/frank/.gvm/bin/gvm-init.sh"
 ----
@@ -22,6 +23,7 @@ The *gvm-init.sh* Skript sets an environment variable called *GVM_INIT* which sk
 
 To update your *PATH* variable execute the following commands
 
+[source,bash]
 ----
 export GVM_INIT=false
 source ~/.bashrc
@@ -31,7 +33,3 @@ But I'm still wondering.
 If I close my shell and open a new terminal window, the phenomenon is the same. http://jbake.org/[jbake] is still not accessible.
 
 Yet I don't get it. Maybe I'm still to tired. I'll do some further investigation.
-
-
-
-

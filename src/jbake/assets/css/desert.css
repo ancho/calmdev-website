@@ -92,7 +92,7 @@ li.L1 code,li.L3 code,li.L5 code,li.L7 code,li.L9 code { background-color: #3939
 .listingblock code {
 
     background-color: #333;
-    padding: 0.125rem 0.3125rem 0.0625rem;
+    padding: 0;
     border-width: 0px;
 }
 
