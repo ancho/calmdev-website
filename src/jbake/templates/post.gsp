@@ -19,7 +19,7 @@
                         <div class="small-9 medium-11 large-11 columns">
 
                             <div>
-                                <h1>${content.title}</h1>
+                                <h2>${content.title}</h2>
                                 <p>
                                     <% content.tags.each { tag ->
                                         tag = tag.trim()

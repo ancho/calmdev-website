@@ -12,10 +12,26 @@ environments {
   test {
     server {
       host = "zweiblum"
-      port = 80
       contextPath = "/blog/"
-      url = "http://$host"
+      url = "https://$host"
+    }
+    ssh {
+      host = "zweiblum"
+      user = "frank"
+      destination = "/var/www/blog"
     }
   }
 
+  prod {
+    server {
+      host = "www.calmdevelopment.de"
+      contextPath = "/blog/"
+      url = "https://$host"
+    }
+    ssh {
+      host = "menkar.uberspace.de"
+      user = "t0ken"
+      destination = "/home/t0ken/html/blog"
+    }
+  }
 }

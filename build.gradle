@@ -12,10 +12,7 @@ buildscript {
   }
 }
 
-apply plugin: 'war'
 apply plugin: 'me.champeau.jbake'
-apply plugin: 'org.akhikhl.gretty'
-apply from: 'gradle/publish.gradle'
 apply from: 'gradle/environment.gradle'
 apply plugin: 'distribution'
 
@@ -25,9 +22,17 @@ repositories {
 }
 
 
-gretty {
-  httpPort = config.server.port
-  contextPath = config.server.contextPath
+if ( env == "local" ){
+  apply plugin: 'war'
+  apply plugin: 'org.akhikhl.gretty'
+
+  gretty {
+    httpPort = config.server.port
+    contextPath = config.server.contextPath
+  }
+}
+else {
+  apply from: 'gradle/publish.gradle'
 }
 
 jbake{

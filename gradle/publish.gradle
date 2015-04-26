@@ -1,18 +1,19 @@
 apply plugin: 'org.hidetake.ssh'
 
 remotes {
-    test {
-        host = 'zweiblum'
-        user = 'frank'
+    server {
+        host = config.ssh.host
+        user = config.ssh.user
         identity = file("/home/frank/.ssh/id_rsa")
     }
 }
     
 task publish() << {
+  println "using host $config.ssh.host"
   ssh.run {
-    session(remotes.test) {
-      put files { file("$buildDir/${jbake.destDirName}").listFiles() } , "/var/www/blog"
+    session(remotes.server) {
+      execute "rm -r ${config.ssh.destination}/*"
+      put files { file("$buildDir/${jbake.destDirName}").listFiles() } , config.ssh.destination
     }
   }
-
 } 

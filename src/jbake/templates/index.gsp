@@ -21,7 +21,7 @@
                         <div class="small-9 medium-11 large-11 columns">
 
                             <div>
-                                <h1><a href="${config.site_contextPath}${post.uri}">${post.title}</a></h1>
+                                <h2><a href="${config.site_contextPath}${post.uri}">${post.title}</a></h2>
 
                                 <p>
                                     <% 

@@ -5,7 +5,7 @@
         <div class="small-12 columns">
             <section class="wrap">
                 <header>
-                    <h1>${content.title}</h1>
+                    <h2>${content.title}</h2>
 
                     <time datetime="${content.date.format("yyyy-MM-dd")}">
                         <small> ${content.date.format("dd.MM.yyyy")} </small>
