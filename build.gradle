@@ -13,8 +13,10 @@ buildscript {
 }
 
 apply plugin: 'me.champeau.jbake'
+apply plugin: 'distribution'
 apply from: 'gradle/environment.gradle'
 apply plugin: 'distribution'
+
 
 repositories {
   mavenLocal()
@@ -57,3 +59,9 @@ task copyBaked(type: Copy, dependsOn: 'bake'){
   into "$buildDir/inplaceWebapp"
 }
 
+distZip.dependsOn bake
+
+task copyBaked(type: Copy, dependsOn: bake){
+  from bake.output
+  into "$buildDir/inplaceWebapp"
+}
