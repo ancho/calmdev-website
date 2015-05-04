@@ -6,7 +6,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1'
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
     classpath 'org.akhikhl.gretty:gretty:+'
     classpath 'org.hidetake:gradle-ssh-plugin:1.0.1'
   }
@@ -17,6 +17,7 @@ apply plugin: 'me.champeau.jbake'
 apply plugin: 'org.akhikhl.gretty'
 apply from: 'gradle/publish.gradle'
 apply from: 'gradle/environment.gradle'
+apply plugin: 'distribution'
 
 repositories {
   mavenLocal()
@@ -38,7 +39,15 @@ jbake{
   configuration['foundation.version'] = "5.5.1"
 }
 
-task copyBaked(type: Copy, dependsOn: 'jbake'){
+distributions {
+  main {
+    contents {
+      from { bake.outputs }
+    }
+  }
+}
+
+task copyBaked(type: Copy, dependsOn: 'bake'){
   from "$buildDir/jbake"
   into "$buildDir/inplaceWebapp"
 }
