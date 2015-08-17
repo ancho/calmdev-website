@@ -1,0 +1,38 @@
+= Jbake Header - Atom snippet =
+Frank Becker
+2015-08-17
+:jbake-type: post
+:jbake-tags: atom,jbake,snippet
+:jbake-status: draft
+:using-atom-snippets: https://atom.io/docs/v1.0.7/using-atom-snippets
+:language-asciidoc: https://atom.io/packages/language-asciidoc
+
+A snippet to create a custom jbake asciidoctor header for the atom editor.
+
+== The jbake asciidoctor header snippet ==
+
+[source, javascript]
+.snippets.cson - snippet for a jbake asciidoctor header
+----
+'.source.asciidoc':
+  'jbake asciidoc header':
+    'prefix': 'jah'
+    'body': """
+    = ${1:Add a Title} =
+    Frank Becker
+    ${2:2015-08-17}
+    :jbake-type: ${3:post}
+    :jbake-tags: $4
+    :jbake-status: ${5:draft}
+
+    $6
+    """
+----
+
+When editing a asciidoctor file writing `jah` following a tab the snippet gets inserted.
+In Order to make it work you need to install the {language-asciidoc}[AsciiDoc Package for Atom].
+
+== Links ==
+
+* {using-atom-snippets}[Using Atom Snippets]
+* {language-asciidoc}[AsciiDoc Package for Atom]

@@ -5,7 +5,7 @@ tags=gradle,continuous delivery,jenkins,vortrag
 status=published
 ~~~~~~
 
-Continous Delivery ist ein heißes und nicht zu unterschätzendes Thema.
+Continuous Delivery ist ein heißes und nicht zu unterschätzendes Thema.
 Es wird also Zeit sich damit ein wenig auseinander zu setzen.
 
 Wenn es eine Buchempfehlung zu dem Thema gibt, dann ist es eigentlich immer

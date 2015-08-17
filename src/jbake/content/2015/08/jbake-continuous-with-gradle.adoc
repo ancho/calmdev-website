@@ -1,0 +1,164 @@
+= (j)bake continuous with gradle
+Frank Becker
+2015-08-17
+:jbake-type: post
+:jbake-tags: jbake,gradle
+:jbake-status: draft
+:gradle-continuous-build: https://docs.gradle.org/current/userguide/continuous_build.html
+:gretty-plugin-github: https://github.com/akhikhl/gretty
+
+An approach to a continuous jbake workflow.
+
+I want to write a blog Post and watch the results of baking the static pages immediately within my browser, every time
+I save the document.
+
+== Create a jbake gradle project
+
+Open a terminal and create a new jbake project.
+
+----
+mkdir jbake-continuous-example
+cd jbake-continuous-example
+mkdir -p src/jbake
+cd src/jbake
+jbake -i -t groovy
+cd ../..
+----
+
+Create the `build.gradle` file with the following content:
+
+[source, groovy]
+----
+buildscript {
+  repositories {
+      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
+      mavenLocal()
+      jcenter()
+  }
+
+  dependencies {
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1'
+    classpath 'org.akhikhl.gretty:gretty:1.2.4'
+  }
+}
+
+apply plugin: 'me.champeau.jbake'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+gretty {
+  httpPort = 8085
+  contextPath = "/"
+  extraResourceBases = ["$buildDir/jbake"]
+}
+
+jbake{
+  version = "2.4.0"
+  asciidoctorjVersion = "1.5.2"
+  configuration['db.store'] = "local"
+  configuration['db.path']= "build/cache"
+  configuration['site.host'] = "localhost"
+  configuration['render.tags'] = true
+  configuration['site.contextPath'] = "/"
+  configuration['asciidoctor.attributes'] = [
+    "imagesdir=/img",
+    "source-highlighter=prettify"
+  ]
+}
+----
+
+That's it. A simplified gradle based jbake project, which adds a `jettyRun` task to serve the output of the `jbake` task.
+
+=== Bake it
+
+To bake your site run
+
+`gradle jbake`
+
+=== Serve it
+
+To serve the baked content run
+
+`gradle jettyRun`
+
+The task starts a jetty server on localhost at the configured Port (8085).
+
+----
+:prepareInplaceWebAppFolder UP-TO-DATE
+:createInplaceWebAppFolder UP-TO-DATE
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:prepareInplaceWebAppClasses UP-TO-DATE
+:prepareInplaceWebApp UP-TO-DATE
+:jettyRun
+17:35:28 INFO  Jetty 9.2.10.v20150310 started and listening on port 8085
+17:35:28 INFO   runs at:
+17:35:28 INFO    http://localhost:8085/
+Press any key to stop the server.
+----
+
+It blocks the terminal until you hit any key, as it's output tells you.
+
+.jetty serving a baked website
+image::jbake-jettyRun.png[jettyRun]
+
+== gradle continuous build feature
+
+With gradle 2.5 the long awaited feature for {gradle-continuous-build}[continuous build/task execution] has arrived.
+If you run a tasks with `gradle -t <task...>`, gradle watches for changes of the task inputs and executes the task
+if one of the inputs did so.
+
+That is great. Maybe we can use that to bake our static website whenever the file we are editing changes.
+
+== jbake continuous
+
+So lets start the jbake task.
+
+--------------
+gradle -t jbake
+
+Starting a new Gradle Daemon for this build (subsequent builds will be faster).
+Continuous build is an incubating feature.
+:jbake UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 6.152 secs
+
+Waiting for changes to input files of tasks... (ctrl-d to exit)
+--------------
+
+Ok. Thats promising.
+
+I added a new File. Saved it. And...taaataaaaa...the change was recognized and the task got executed again.
+
+--------------
+Change detected, executing build...
+
+:jbake
+
+BUILD SUCCESSFUL
+
+Total time: 5.302 secs
+
+Waiting for changes to input files of tasks... (ctrl-d to exit)
+--------------
+
+== It works!!!1!
+
+Amazing. It works. And it wasn't that hard. Now I can start a jetty server, hack on my blog post, and watch the changes
+every time I save the document.
+
+Everything I need is
+
+* a Terminal with two windows
+** one for the jettyRun task
+** one for the continuous jbake task
+* a browser
+* an editor
+
+== Links
+
+* {gradle-continuous-build}[Gradle Documentation - Continuous build]
+* {gretty-plugin-github}[gretty plugin *@github*]

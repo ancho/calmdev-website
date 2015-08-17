@@ -7,7 +7,7 @@ buildscript {
 
   dependencies {
     classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
-    classpath 'org.akhikhl.gretty:gretty:+'
+    classpath 'org.akhikhl.gretty:gretty:1.2.4'
     classpath 'org.hidetake:gradle-ssh-plugin:1.0.1'
   }
 }
@@ -31,6 +31,7 @@ if ( env == "local" ){
   gretty {
     httpPort = config.server.port
     contextPath = config.server.contextPath
+    extraResourceBases = [bake.output]
   }
 }
 else {
@@ -40,10 +41,16 @@ else {
 jbake{
   version = "2.4.0"
   asciidoctorjVersion = "1.5.2"
-  configuration['render.tags'] = true
+  configuration['db.store'] = "local"
+  configuration['db.path']= "cache"
   configuration['site.host'] = config.server.url
+  configuration['render.tags'] = true
   configuration['site.contextPath'] = config.server.contextPath
   configuration['foundation.version'] = "5.5.1"
+  configuration['asciidoctor.attributes'] = [
+    "imagesdir=${config.server.contextPath}img",
+    "source-highlighter=prettify"
+  ]
 }
 
 distributions {
