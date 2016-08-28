@@ -1,19 +1,5 @@
-apply plugin: 'org.hidetake.ssh'
 
-remotes {
-    server {
-        host = config.ssh.host
-        user = config.ssh.user
-        identity = file("/home/frank/.ssh/id_rsa")
-    }
+task publish(type: Exec) {
+    executable "rsync"
+    args "-ruvt", "--delete", "$buildDir/${jbake.destDirName}/", "${config.ssh.host}:${config.ssh.destination}/"
 }
-    
-task publish() << {
-  println "using host $config.ssh.host"
-  ssh.run {
-    session(remotes.server) {
-      execute "rm -r ${config.ssh.destination}/*"
-      put files { file("$buildDir/${jbake.destDirName}").listFiles() } , config.ssh.destination
-    }
-  }
-} 

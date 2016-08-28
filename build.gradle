@@ -8,14 +8,12 @@ buildscript {
   dependencies {
     classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
     classpath 'org.akhikhl.gretty:gretty:1.4.0'
-    classpath 'org.hidetake:gradle-ssh-plugin:2.5.1'
   }
 }
 
 apply plugin: 'me.champeau.jbake'
 apply plugin: 'distribution'
 apply from: 'gradle/environment.gradle'
-
 
 repositories {
   mavenLocal()
