@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="${config.site_contextPath}css/asciidoctor.css" />
     <link rel="stylesheet" href="${config.site_contextPath}css/foundation.css" />
     <link rel="stylesheet" href="${config.site_contextPath}css/social_foundicons.css" />
-    <link rel="stylesheet" href="${config.site_contextPath}css/prettify.css" />
+    <link rel="stylesheet" href="${config.site_contextPath}vendor/google-code-prettify/prettify.css" />
     <link rel="stylesheet" href="${config.site_contextPath}css/desert.css" />
     <link rel="stylesheet" href="${config.site_contextPath}css/app.css" />
 

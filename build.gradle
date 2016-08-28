@@ -49,7 +49,8 @@ jbake{
   configuration['foundation.version'] = "5.5.1"
   configuration['asciidoctor.attributes'] = [
     "imagesdir=${config.server.contextPath}img",
-    "source-highlighter=prettify"
+    "source-highlighter=prettify",
+    "icons=font"
   ]
 }
 
@@ -61,14 +62,4 @@ distributions {
   }
 }
 
-task copyBaked(type: Copy, dependsOn: 'bake'){
-  from "$buildDir/jbake"
-  into "$buildDir/inplaceWebapp"
-}
-
 distZip.dependsOn bake
-
-task copyBaked(type: Copy, dependsOn: bake){
-  from bake.output
-  into "$buildDir/inplaceWebapp"
-}

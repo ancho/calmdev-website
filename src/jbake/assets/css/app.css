@@ -145,3 +145,7 @@ article.wrap {
 .listingblock pre:not(.highlight) {
     background-color: #b3b3b3;
 }
+
+.conum[data-value] {
+    background-color: #a5a9af;
+}

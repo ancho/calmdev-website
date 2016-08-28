@@ -5,9 +5,9 @@
 </div>
 </div>
 
-<script src="${config.site_contextPath}js/vendor/jquery.js"></script>
-<script src="${config.site_contextPath}js/foundation.min.js"></script>
-<script src="${config.site_contextPath}js/vendor/prettify.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}js/vendor/jquery.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}js/foundation.min.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}vendor/google-code-prettify/prettify.js"></script>
 <script>
     \$(document).foundation();
         \$(function() {
