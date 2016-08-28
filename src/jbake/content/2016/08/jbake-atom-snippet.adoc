@@ -1,6 +1,6 @@
 = Jbake Header - Atom snippet =
 Frank Becker
-2016-08-24
+2016-08-28
 :jbake-type: post
 :jbake-tags: atom,jbake,snippet
 :jbake-status: published

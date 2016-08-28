@@ -1,5 +1,5 @@
 environments {
-  
+
   local {
     server {
       host = "localhost"
@@ -29,7 +29,7 @@ environments {
       url = "https://$host"
     }
     ssh {
-      host = "menkar.uberspace.de"
+      host = "calmdev"
       user = "t0ken"
       destination = "/home/t0ken/html/blog"
     }

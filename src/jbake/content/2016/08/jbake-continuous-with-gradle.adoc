@@ -1,6 +1,6 @@
 = (j)bake continuous with gradle
 Frank Becker
-2016-08-24
+2016-08-28
 :jbake-type: post
 :jbake-tags: jbake,gradle
 :jbake-status: published
