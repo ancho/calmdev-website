@@ -8,6 +8,7 @@ Frank Becker
 :gretty-plugin-github: https://github.com/akhikhl/gretty
 :jbake-github: https://github.com/jbake-org/jbake
 :jbake-gradle-plugin: https://github.com/jbake-org/jbake-gradle-plugin
+:jbake-description: An approach to a continuous jbake workflow.
 
 An approach to a continuous jbake workflow.
 

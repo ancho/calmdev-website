@@ -44,6 +44,7 @@ jbake{
   configuration['render.tags'] = true
   configuration['site.contextPath'] = config.server.contextPath
   configuration['foundation.version'] = "5.5.1"
+  configuration['twitter.user'] = "@knarfancho"
   configuration['asciidoctor.attributes'] = [
     "imagesdir=${config.server.contextPath}img",
     "source-highlighter=prettify",

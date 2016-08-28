@@ -4,6 +4,7 @@ Frank Becker
 :jbake-type: post
 :jbake-tags: atom,jbake,snippet
 :jbake-status: published
+:jbake-description: A snippet to create a custom jbake asciidoctor header for the atom editor.
 :using-atom-snippets: http://flight-manual.atom.io/using-atom/sections/snippets/
 :language-asciidoc: https://atom.io/packages/language-asciidoc
 

@@ -13,6 +13,6 @@
 
     <script src="${config.site_contextPath}js/vendor/modernizr.js"></script>
     <script src="${config.site_contextPath}js/app.js"></script>
-
+    <% if (content.type == "post" && content.description ) { include "twitter-card.gsp" }%>
 </head>
 <body class="antialiased" onload="prettyPrint();">
