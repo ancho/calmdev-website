@@ -1,10 +1,10 @@
 = Jbake Header - Atom snippet =
 Frank Becker
-2015-08-17
+2016-08-24
 :jbake-type: post
 :jbake-tags: atom,jbake,snippet
-:jbake-status: draft
-:using-atom-snippets: https://atom.io/docs/v1.0.7/using-atom-snippets
+:jbake-status: published
+:using-atom-snippets: http://flight-manual.atom.io/using-atom/sections/snippets/
 :language-asciidoc: https://atom.io/packages/language-asciidoc
 
 A snippet to create a custom jbake asciidoctor header for the atom editor.
@@ -20,7 +20,7 @@ A snippet to create a custom jbake asciidoctor header for the atom editor.
     'body': """
     = ${1:Add a Title} =
     Frank Becker
-    ${2:2015-08-17}
+    ${2:2016-08-14}
     :jbake-type: ${3:post}
     :jbake-tags: $4
     :jbake-status: ${5:draft}

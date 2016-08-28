@@ -1,11 +1,13 @@
 = (j)bake continuous with gradle
 Frank Becker
-2015-08-17
+2016-08-24
 :jbake-type: post
 :jbake-tags: jbake,gradle
-:jbake-status: draft
+:jbake-status: published
 :gradle-continuous-build: https://docs.gradle.org/current/userguide/continuous_build.html
 :gretty-plugin-github: https://github.com/akhikhl/gretty
+:jbake-github: https://github.com/jbake-org/jbake
+:jbake-gradle-plugin: https://github.com/jbake-org/jbake-gradle-plugin
 
 An approach to a continuous jbake workflow.
 
@@ -38,7 +40,7 @@ buildscript {
 
   dependencies {
     classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1'
-    classpath 'org.akhikhl.gretty:gretty:1.2.4'
+    classpath 'org.akhikhl.gretty:gretty:1.4.0'
   }
 }
 
@@ -53,10 +55,10 @@ gretty {
 }
 
 jbake{
-  version = "2.4.0"
-  asciidoctorjVersion = "1.5.2"
-  configuration['db.store'] = "local"
-  configuration['db.path']= "build/cache"
+  version = "2.5.0-SNAPSHOT"
+  asciidoctorjVersion = "1.5.4.1"
+  configuration['db.store'] = "local" <1>
+  configuration['db.path']= "build/cache" <2>
   configuration['site.host'] = "localhost"
   configuration['render.tags'] = true
   configuration['site.contextPath'] = "/"
@@ -66,14 +68,23 @@ jbake{
   ]
 }
 ----
+<1> The default setting is _memory_ for an in-memory database.
++
+There is a problem with duplicated Posts in version 2.4.0 using the cached version.
+Thats the real reason I'm using the snapshot version right now.
 
-That's it. A simplified gradle based jbake project, which adds a `jettyRun` task to serve the output of the `jbake` task.
+<2> It is maybe not the best idea to store the database directory to the build directory.
+Running ``gradle clean`` wipes the build directory and everything is lost.
+In my case I want to wipe the cached database clean. clean means clean...
+
+
+That's it. A simplified gradle based jbake project, which adds a `jettyRun` task to serve the output of the `bake` task.
 
 === Bake it
 
 To bake your site run
 
-`gradle jbake`
+`gradle bake`
 
 === Serve it
 
@@ -105,7 +116,7 @@ image::jbake-jettyRun.png[jettyRun]
 
 == gradle continuous build feature
 
-With gradle 2.5 the long awaited feature for {gradle-continuous-build}[continuous build/task execution] has arrived.
+Since gradle 2.5 the long awaited feature for {gradle-continuous-build}[continuous build/task execution] has arrived.
 If you run a tasks with `gradle -t <task...>`, gradle watches for changes of the task inputs and executes the task
 if one of the inputs did so.
 
@@ -113,14 +124,14 @@ That is great. Maybe we can use that to bake our static website whenever the fil
 
 == jbake continuous
 
-So lets start the jbake task.
+So lets start the bake task as a continous build.
 
 --------------
-gradle -t jbake
+gradle -t bake
 
 Starting a new Gradle Daemon for this build (subsequent builds will be faster).
 Continuous build is an incubating feature.
-:jbake UP-TO-DATE
+:bake UP-TO-DATE
 
 BUILD SUCCESSFUL
 
@@ -136,7 +147,7 @@ I added a new File. Saved it. And...taaataaaaa...the change was recognized and t
 --------------
 Change detected, executing build...
 
-:jbake
+:bake
 
 BUILD SUCCESSFUL
 
@@ -162,3 +173,13 @@ Everything I need is
 
 * {gradle-continuous-build}[Gradle Documentation - Continuous build]
 * {gretty-plugin-github}[gretty plugin *@github*]
+* {jbake-gradle-plugin}[jbake gradle plugin @github]
+
+== Info
+
+* {jbake-gradle-plugin}[jbake gradle plugin] Version 0.2.1
++
+I use a version published to a private repository at bintray.
+* {jbake-github}[jbake] Version 2.5.0-SNAPSHOT (current master)
++
+No risk no fun... :P
