@@ -1,0 +1,63 @@
+stages:
+  - build
+  - deploy
+  - cleanup
+
+cache:
+  paths:
+    - build/
+    - .gradle/
+
+build_dev:
+  stage: build
+
+  script:
+    - ./gradlew -Penv=test clean bake
+
+  only:
+    - develop
+
+  environment: integration
+
+  artifacts:
+    paths:
+      - build/
+      - .gradle/
+
+deploy_dev:
+  stage: deploy
+
+  before_script:
+    # Install ssh-agent if not already installed, it is required by Docker.
+    # (change apt-get to yum if you use a CentOS-based image)
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host zweiblum\nHostName 192.168.100.3\nCompression yes\nUser frank\n\n" > ~/.ssh/config
+
+  script:
+    - ./gradlew -Penv=test publish --stacktrace --info
+
+  variables:
+    AGENT_PID: $SSH_AGENT_PID
+
+  after_script:
+    - 'echo "Agendpid: $AGENT_PID"'
+    - export SSH_AGENT_PID=$AGENT_PID
+    - ssh-agent -k
+
+  only:
+    - develop
+
+  environment: integration
+
+  dependencies:
+    - build_dev
+
+  when: on_success
+

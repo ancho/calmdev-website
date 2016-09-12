@@ -6,7 +6,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1-SNAPSHOT'
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1'
     classpath 'org.akhikhl.gretty:gretty:1.4.0'
   }
 }
@@ -36,7 +36,7 @@ else {
 }
 
 jbake{
-  version = "2.5.0-SNAPSHOT"
+  version = "2.4.0"
   asciidoctorjVersion = "1.5.4.1"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
