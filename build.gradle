@@ -104,3 +104,4 @@ distributions {
 }
 
 distZip.dependsOn bake
+bake.dependsOn bowerInstall
