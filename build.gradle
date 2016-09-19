@@ -24,10 +24,17 @@ repositories {
   jcenter()
 }
 
+ext {
+    foundationVersion = '5.5.3'
+    highlightjsVersion = '9.6.0'
+    jqueryVersion = '2.1.4'
+    modernizrVersion = '2.8.3'
+}
+
 bower {
     installBase = "$jbake.srcDirName/assets/vendor"
 
-    'foundation'('5.5.3'){
+    'foundation'(foundationVersion){
         source '**/*.css'
         source '**/*.js'
 
@@ -40,17 +47,17 @@ bower {
         source 'foundation-icons*'
     }
 
-    'highlightjs'('9.6.0'){
+    'highlightjs'(highlightjsVersion){
         source 'highlight.pack.min.js'
         source 'styles/darcula.css'
         excludes 'default.css'
     }
 
-    'jquery'('2.1.4') {
+    'jquery'(jqueryVersion) {
         source 'dist/jquery.js' >> 'jquery.js'
     }
 
-    'modernizr'('2.8.3') {
+    'modernizr'(modernizrVersion) {
         source 'modernizr.js'
     }
 }
@@ -79,7 +86,7 @@ jbake{
   configuration['site.host'] = config.server.url
   configuration['render.tags'] = true
   configuration['site.contextPath'] = config.server.contextPath
-  configuration['foundation.version'] = "5.5.1"
+  configuration['foundation.version'] = foundationVersion
   configuration['twitter.user'] = "@knarfancho"
   configuration['asciidoctor.attributes'] = [
     "imagesdir=${config.server.contextPath}img",
