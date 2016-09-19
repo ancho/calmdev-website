@@ -30,7 +30,7 @@ cd ../..
 
 Create the `build.gradle` file with the following content:
 
-[source, groovy]
+[source, gradle]
 ----
 buildscript {
   repositories {

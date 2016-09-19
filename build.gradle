@@ -11,6 +11,10 @@ buildscript {
   }
 }
 
+plugins {
+    id 'com.craigburke.bower-installer' version '2.5.1'
+}
+
 apply plugin: 'me.champeau.jbake'
 apply plugin: 'distribution'
 apply from: 'gradle/environment.gradle'
@@ -20,6 +24,36 @@ repositories {
   jcenter()
 }
 
+bower {
+    installBase = "$jbake.srcDirName/assets/vendor"
+
+    'foundation'('5.5.3'){
+        source '**/*.css'
+        source '**/*.js'
+
+        excludes 'fastclick'
+        excludes 'jquery-placeholder'
+        excludes 'jquery.cookie'
+    }
+
+    'foundation-icon-fonts'(){
+        source 'foundation-icons*'
+    }
+
+    'highlightjs'('9.6.0'){
+        source 'highlight.pack.min.js'
+        source 'styles/darcula.css'
+        excludes 'default.css'
+    }
+
+    'jquery'('2.1.4') {
+        source 'dist/jquery.js' >> 'jquery.js'
+    }
+
+    'modernizr'('2.8.3') {
+        source 'modernizr.js'
+    }
+}
 
 if ( env == "local" ){
   apply plugin: 'war'
@@ -49,7 +83,7 @@ jbake{
   configuration['twitter.user'] = "@knarfancho"
   configuration['asciidoctor.attributes'] = [
     "imagesdir=${config.server.contextPath}img",
-    "source-highlighter=prettify",
+    "source-highlighter=highlight.js",
     "icons=font"
   ]
 }

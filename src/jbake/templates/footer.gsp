@@ -5,16 +5,15 @@
 </div>
 </div>
 
-<script type="text/javascript" src="${config.site_contextPath}js/vendor/jquery.js"></script>
-<script type="text/javascript" src="${config.site_contextPath}js/foundation.min.js"></script>
-<script type="text/javascript" src="${config.site_contextPath}vendor/google-code-prettify/prettify.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}vendor/foundation/js/foundation/foundation.js"></script>
+<script type="text/javascript" src="${config.site_contextPath}vendor/foundation/js/foundation/foundation.topbar.js"></script>
+<script src="${config.site_contextPath}vendor/highlightjs/highlight.pack.min.js"></script>
+<script src="${config.site_contextPath}js/app.js"></script>
+
 <script>
     \$(document).foundation();
-        \$(function() {
-                      hljs.tabReplace = "  ";
-                                  hljs.initHighlighting();
-                                          });
+    hljs.initHighlightingOnLoad();
 </script>
-
 </body>
 </html>

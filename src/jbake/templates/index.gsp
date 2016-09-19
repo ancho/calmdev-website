@@ -24,7 +24,7 @@
                                 <h2><a href="${config.site_contextPath}${post.uri}">${post.title}</a></h2>
 
                                 <p>
-                                    <% 
+                                    <%
                                         def contextPath = "${config.site_contextPath}"
                                         post.tags.each { tag ->
                                         tag = tag.trim()

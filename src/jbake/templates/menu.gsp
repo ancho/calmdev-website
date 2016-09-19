@@ -5,8 +5,8 @@
                 <h1>Calmdevelopment</h1>
                 <p>Keep calm and code. Or do some other stuff.</p>
                 <p class="title-contact">
-                    <a href="https://twitter.com/knarfancho"><i class="foundicon-twitter"></i></a>
-                    <a href="https://github.com/ancho"><i class="foundicon-github"></i></a>
+                    <a href="https://twitter.com/knarfancho" rel="me"><i class="fi-social-twitter"></i></a>
+                    <a href="https://github.com/ancho" rel="me"><i class="fi-social-github"></i></a>
                 </p>
             </div>
         </div>
@@ -29,4 +29,3 @@
         </div>
     </div>
 </div>
-

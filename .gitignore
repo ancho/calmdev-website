@@ -3,3 +3,5 @@
 .gradle
 
 build/
+node_modules
+vendor
