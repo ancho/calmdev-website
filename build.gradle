@@ -1,65 +1,30 @@
 buildscript {
   repositories {
-      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
+      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" } //<1>
       mavenLocal()
       jcenter()
   }
 
   dependencies {
-    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1'
-    classpath 'org.akhikhl.gretty:gretty:1.4.0'
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1' //<2>
+    classpath 'org.asciidoctor:asciidoctorj-diagram:1.5.0' //<3>
   }
 }
 
 plugins {
+    id 'org.akhikhl.gretty' version '1.4.0' apply false
     id 'com.craigburke.bower-installer' version '2.5.1'
+    id 'distribution'
 }
 
 apply plugin: 'me.champeau.jbake'
-apply plugin: 'distribution'
+apply from: 'gradle/distribution.gradle'
 apply from: 'gradle/environment.gradle'
+apply from: 'gradle/webResources.gradle'
 
 repositories {
   mavenLocal()
   jcenter()
-}
-
-ext {
-    foundationVersion = '5.5.3'
-    highlightjsVersion = '9.6.0'
-    jqueryVersion = '2.1.4'
-    modernizrVersion = '2.8.3'
-}
-
-bower {
-    installBase = "$jbake.srcDirName/assets/vendor"
-
-    'foundation'(foundationVersion){
-        source '**/*.css'
-        source '**/*.js'
-
-        excludes 'fastclick'
-        excludes 'jquery-placeholder'
-        excludes 'jquery.cookie'
-    }
-
-    'foundation-icon-fonts'(){
-        source 'foundation-icons*'
-    }
-
-    'highlightjs'(highlightjsVersion){
-        source 'highlight.pack.min.js'
-        source 'styles/darcula.css'
-        excludes 'default.css'
-    }
-
-    'jquery'(jqueryVersion) {
-        source 'dist/jquery.js' >> 'jquery.js'
-    }
-
-    'modernizr'(modernizrVersion) {
-        source 'modernizr.js'
-    }
 }
 
 if ( env == "local" ){
@@ -77,7 +42,7 @@ else {
 }
 
 jbake{
-  version = "2.4.0"
+  version = "2.5.0-SNAPSHOT" //<8>
   asciidoctorjVersion = "1.5.4.1"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
@@ -88,20 +53,12 @@ jbake{
   configuration['site.contextPath'] = config.server.contextPath
   configuration['foundation.version'] = foundationVersion
   configuration['twitter.user'] = "@knarfancho"
+  configuration['asciidoctor.option.requires'] = "asciidoctor-diagram" //<4>
   configuration['asciidoctor.attributes'] = [
-    "imagesdir=${config.server.contextPath}img",
+    "sourceDir=${projectDir}", //<5>
+    "imagesdir=${config.server.contextPath}img", //<6>
+    "imagesoutdir=${bake.input}/assets/img", //<7>
     "source-highlighter=highlight.js",
     "icons=font"
   ]
 }
-
-distributions {
-  main {
-    contents {
-      from { bake.outputs }
-    }
-  }
-}
-
-distZip.dependsOn bake
-bake.dependsOn bowerInstall

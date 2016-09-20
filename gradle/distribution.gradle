@@ -1,0 +1,9 @@
+distributions {
+  main {
+    contents {
+      from { bake.outputs }
+    }
+  }
+}
+
+distZip.dependsOn bake
