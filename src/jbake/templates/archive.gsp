@@ -1,6 +1,6 @@
 <%include 'header.gsp'%>
 <%include 'menu.gsp'%>
-	
+
 	<div class="row">
         <div class="small-12 columns">
             <section class="wrap">
@@ -19,7 +19,16 @@
                         <ul>
                     <% }%>
 
-                    <li>${post.date.format("dd")} - <a href="${config.site_contextPath}${post.uri}">${post.title}</a></li>
+                    <li>
+						${post.date.format("dd")} -
+						<a href="${config.site_contextPath}${post.uri}">
+							${post.title}
+						</a>
+						<% if (post.language) { %>
+							<i class="fi-flag" aria-hidden="true" alt="language"></i> ${post.language}
+						<% } %>
+
+					</li>
                     <%last_month = post.date.format("MMMM yyyy")%>
                 <%}%>
             </ul>
@@ -27,6 +36,6 @@
 
         </div>
 	</div>
-	
+
 
 <%include "footer.gsp"%>

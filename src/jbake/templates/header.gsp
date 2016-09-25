@@ -13,12 +13,9 @@
     <% if (content.type == "post" && content.description ) { include "twitter-card.gsp" }%>
 
     <link rel="stylesheet" href="${config.site_contextPath}css/asciidoctor.css" />
-    <link rel="stylesheet" href="${config.site_contextPath}vendor/foundation/css/foundation.min.css" />
-    <link rel="stylesheet" href="${config.site_contextPath}vendor/foundation/css/normalize.min.css" />
+    <link rel="stylesheet" href="${config.site_contextPath}vendor/foundation-sites/dist/foundation.min.css" />
     <link rel="stylesheet" href="${config.site_contextPath}vendor/foundation-icon-fonts/foundation-icons.css" />
     <link rel="stylesheet" href="${config.site_contextPath}vendor/highlightjs/darcula.css" />
     <link rel="stylesheet" href="${config.site_contextPath}css/app.css" />
-
-    <script src="${config.site_contextPath}vendor/modernizr/modernizr.js"></script>
 </head>
 <body class="antialiased">

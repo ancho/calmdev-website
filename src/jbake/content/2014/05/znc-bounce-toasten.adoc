@@ -1,6 +1,7 @@
 title=znc bouncer toasten
 date=2014-05-20
 type=post
+language=de
 tags=uberspace,toast,znc
 status=published
 ~~~~~~
@@ -97,7 +98,7 @@ Das alles gibt der CPU genug zu tun für ne weile.
 
 == Toast essen
 
-Im Anschluss kann man znc verwenden. 
+Im Anschluss kann man znc verwenden.
 
 ----
 $ znc -v
@@ -106,4 +107,3 @@ IPv6: yes, SSL: yes, DNS: threads
 ----
 
 Ich mag toast!
-

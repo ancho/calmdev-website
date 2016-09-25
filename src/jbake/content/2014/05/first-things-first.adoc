@@ -1,6 +1,7 @@
 title=First things first
 date=2014-05-01
 type=post
+language=de
 tags=uberspace,htaccess
 status=published
 ~~~~~~

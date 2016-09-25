@@ -1,6 +1,7 @@
 title=lazybones
 date=2014-08-24
 type=post
+language=de
 tags=lazybones,maven,archetypes,templates
 status=published
 ~~~~~~
@@ -114,8 +115,3 @@ Project created in my-groovy-lib!
 Je nach Komplexität des Templates wird man nach den ein oder anderen Informationen gefragt. Diese werden dann verwendet, um die entsprechenden Template-Dateien zu parsen und das Projekt vorzubereiten.
 
 Am Ende bekommt man die README des Templates auf die Konsole geworfen und kann loslegen.
-
-
-
-
-

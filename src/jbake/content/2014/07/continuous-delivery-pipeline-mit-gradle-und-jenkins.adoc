@@ -1,6 +1,7 @@
 title=Continuous Delivery Pipeline mit Gradle und Jenkins
 date=2014-07-31
 type=post
+language=de
 tags=gradle,continuous delivery,jenkins,vortrag
 status=published
 ~~~~~~
@@ -18,5 +19,3 @@ http://www.infoq.com/presentations/cd-gradle-jenkins[Vortrag] zu dem Thema gehal
 
 Zu dem Vortrag solltet ihr euch parallel die Präsentation anschauen, sonst machts nur halb soviel Spass.
 Die kann man sich herunterladen, wenn man unter dem Video auf den Link *Slides* klickt.
-
-

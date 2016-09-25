@@ -1,6 +1,6 @@
 <div class="row">
     <div class="small-12 large-12 middle-12 small-text-center large-text-center middle-text-center columns">
-        <div class="title-box">
+        <div id="title-box" class="title-box">
             <div class="title-content">
                 <h1>Calmdevelopment</h1>
                 <p>Keep calm and code. Or do some other stuff.</p>
@@ -10,22 +10,25 @@
                 </p>
             </div>
         </div>
-        <div class="sticky contain-to-grid">
-            <nav class="top-bar" data-topbar role="navigation">
-                <ul class="title-area">
-                    <li class="name"><!-- No title --></li>
-                    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                </ul>
+        <nav class="topnav">
+            <div class="top-bar">
+                <div class="top-bar-title">
+                    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                        <button class="menu-icon dark" type="button" data-toggle></button>
+                    </span>
+                    <strong class="show-for-small-only"> Menu </strong>
+                </div>
+                <div id="responsive-menu">
+                    <div class="top-bar-left">
+                        <ul class="menu" data-dropdown-menu>
+                            <li><a href="${config.site_contextPath}index.html">Home</a></li>
+                            <li><a href="${config.site_contextPath}${config.archive_file}">Archive</a></li>
+                            <li><a href="${config.site_contextPath}${config.feed_file}">Subscribe</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-                <section class="top-bar-section">
-                    <ul class="left">
-                        <li><a href="${config.site_contextPath}index.html">Home</a></li>
-                        <li><a href="${config.site_contextPath}${config.archive_file}">Archive</a></li>
-                        <li><a href="${config.site_contextPath}${config.feed_file}">Subscribe</a></li>
-                    </ul>
-                </section>
-            </nav>
-        </div>
     </div>
 </div>

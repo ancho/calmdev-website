@@ -1,6 +1,7 @@
 title=force gvm-init.sh
 date=2014-08-25
 type=post
+language=en
 tags=gvmtool,bash
 status=published
 ~~~~~~
@@ -8,7 +9,7 @@ status=published
 Recently I installed http://jbake.org/[jbake] with *gvm* and was wondering why it wasn't accessible within my shell after resourcing my *.bashrc*.
 
 == The problem
-There is this line in my *.bash_profile* 
+There is this line in my *.bash_profile*
 
 [source, bash]
 ----
@@ -29,7 +30,7 @@ export GVM_INIT=false
 source ~/.bashrc
 ----
 
-But I'm still wondering. 
+But I'm still wondering.
 If I close my shell and open a new terminal window, the phenomenon is the same. http://jbake.org/[jbake] is still not accessible.
 
 Yet I don't get it. Maybe I'm still to tired. I'll do some further investigation.

@@ -1,6 +1,7 @@
 title=Ersatz für grails-user Mailingliste
 date=2014-05-12
 type=post
+language=de
 tags=grails
 status=published
 ~~~~~~

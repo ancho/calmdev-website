@@ -1,6 +1,7 @@
 title=vim asciidoc syntax highlighting
 date=2014-09-14
 type=post
+language=en
 tags=asciidoc,vim
 status=published
 ~~~~~~

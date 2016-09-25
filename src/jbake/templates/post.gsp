@@ -7,35 +7,35 @@
                 <header>
                     <div class="row">
                         <div class="small-3 medium-1 large-1 columns">
-                            <div class="termin">
-                                <div class="month">${content.date?.format("MMM")}</div>
+                            <div class="row termin">
+                                <div class="month columns">${content.date?.format("MMM")}</div>
 
-                                <div class="date">${content.date?.format("dd")}</div>
+                                <div class="date columns">${content.date?.format("dd")}</div>
 
-                                <div class="year">${content.date?.format("yyyy")}</div>
+                                <div class="year columns">${content.date?.format("yyyy")}</div>
                             </div>
                         </div>
 
                         <div class="small-9 medium-11 large-11 columns">
+                            <h2>${content.title}</h2>
 
-                            <div>
-                                <h2>${content.title}</h2>
-                                <p>
-                                    <% content.tags.each { tag ->
-                                        tag = tag.trim()
-                                    %>
-                                    <span><a href="${config.site_contextPath}tags/${tag.replace(' ','-')}.html" class="label">${tag}</a></span>
-                                    <% } %>
-                                </p>
-                                <hr/>
+                            <p>
+                                <%
+                                    def contextPath = "${config.site_contextPath}"
+                                    content.tags.each { tag ->
+                                    tag = tag.trim()
+                                %>
+                                    <span class="label"><a href="${contextPath}tags/${tag.replace(' ','-')}.html">${tag}</a></span>
+                                <% } %>
+                            </p>
 
-                            </div>
                         </div>
+                        <hr/>
                     </div>
                 </header>
 
                 <div class="row">
-                    <div class="small-9 small-offset-3 medium-11 medium-offset-1 large-11 large-offset-1 columns">
+                    <div class="columns">
                         ${content.body}
                     </div>
                 </div>

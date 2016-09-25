@@ -2,6 +2,7 @@
 Frank Becker
 2016-08-28
 :jbake-type: post
+:jbake-language: en
 :jbake-tags: atom,jbake,snippet
 :jbake-status: published
 :jbake-description: A snippet to create a custom jbake asciidoctor header for the atom editor.

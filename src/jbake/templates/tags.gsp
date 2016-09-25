@@ -18,7 +18,11 @@
                                 post.tags.contains(tag)
                     }.size()
                 %>
-                <span><a href="${config.site_contextPath}tags/${tag.replace(' ', '-')}.html" class="label">${tag} <span class="badge">${postsCount}</span></a></span>
+                <span class="label">
+                    <a href="${config.site_contextPath}tags/${tag.replace(' ', '-')}.html">${tag}</a>
+                    <span class="secondary badge">${postsCount}</span>
+                </span>
+                
                 <% } %>
             </div>
         </div>

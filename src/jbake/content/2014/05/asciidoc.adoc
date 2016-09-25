@@ -1,6 +1,7 @@
 title=asciidoctor
 date=2014-05-04
 type=post
+language=de
 tags=asciidoc
 status=draft
 ~~~~~~
@@ -12,36 +13,36 @@ Von [asciidoctor][] habe ich jetzt schon mehrfach gelesen. Und da es ein [Plugin
 == Anforderungen
 
 * ***einfache Syntax***
-  
-  [markdown](http://daringfireball.net/projects/markdown/) ähnliche Sprachen sind den meisten Programmierern mittlerweile 
+
+  [markdown](http://daringfireball.net/projects/markdown/) ähnliche Sprachen sind den meisten Programmierern mittlerweile
   geläufig.
-  Die Einarbeitungsszeit sollte damit so minimal wie möglich sein. Damit 
+  Die Einarbeitungsszeit sollte damit so minimal wie möglich sein. Damit
   man sich auf das Wesentliche konzentrieren kann.
-  
+
 * ***gute Dokumentation***
 
-  Für alle anderen Fälle sollte die Dokumentation einfach und übersichtlich 
+  Für alle anderen Fälle sollte die Dokumentation einfach und übersichtlich
   sein.
-  
+
 * ***einfache Integration***
 
   Ich möchte mit wenigen Befehlen möglichst viel erreichen.
-  Am Besten mit einem einfachen gradle Befehl das Projekt testen, doku 
-  erstellen und zusammenpacken. Das wäre Toll. Wenn es dann noch möglich ist 
-  einzelne Fetzen von Code aus meinen Quellen direkt in die Dokumentation zu 
+  Am Besten mit einem einfachen gradle Befehl das Projekt testen, doku
+  erstellen und zusammenpacken. Das wäre Toll. Wenn es dann noch möglich ist
+  einzelne Fetzen von Code aus meinen Quellen direkt in die Dokumentation zu
   übernehmen wäre das Optimal.
-  
+
   Dabei sollte es Java und Groovy unterstützen.
 
-  [ Für Python gibt es ein sehr ähnliches [Projekt](http://sphinx-doc.org/). 
+  [ Für Python gibt es ein sehr ähnliches [Projekt](http://sphinx-doc.org/).
     Wenn es nicht sogar die Vorlage war. ]
-    
+
 * ***einfache Installation***
 
   Am Liebsten ist mir ein `aptitude install asciidoctor` :)
-  Aber auch Windows- und Mac-User sollten eine einfache Möglichkeit haben 
+  Aber auch Windows- und Mac-User sollten eine einfache Möglichkeit haben
   die Software zu installieren.
-  
+
 * ***minimum an Ausgabeformaten***
   - html
   - pdf
