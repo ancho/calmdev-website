@@ -13,17 +13,21 @@
         <nav class="topnav">
             <div class="top-bar">
                 <div class="top-bar-title">
-                    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-                        <button class="menu-icon dark" type="button" data-toggle></button>
-                    </span>
-                    <strong class="show-for-small-only"> Menu </strong>
+                    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                        <button class="menu-icon" type="button" data-toggle></button>
+                        <div class="title-bar-title"> Menu </div>
+                    </div>
                 </div>
                 <div id="responsive-menu">
                     <div class="top-bar-left">
                         <ul class="menu" data-dropdown-menu>
-                            <li><a href="${config.site_contextPath}index.html">Home</a></li>
-                            <li><a href="${config.site_contextPath}${config.archive_file}">Archive</a></li>
-                            <li><a href="${config.site_contextPath}${config.feed_file}">Subscribe</a></li>
+                            <li><a href="${config.site_contextPath}index.html"><i class="fi-home"></i> Home</a></li>
+                            <li><a href="${config.site_contextPath}${config.archive_file}"><i class="fi-archive"></i> Archive</a></li>
+                        </ul>
+                    </div>
+                    <div class="top-bar-right">
+                        <ul class="menu" data-dropdown-menu>
+                            <li><a href="${config.site_contextPath}${config.feed_file}"><i class="fi-rss"></i> Subscribe</a></li>
                         </ul>
                     </div>
                 </div>

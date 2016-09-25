@@ -7,7 +7,6 @@
 
 <script type="text/javascript" src="${config.site_contextPath}vendor/jquery/jquery.js"></script>
 <script type="text/javascript" src="${config.site_contextPath}vendor/foundation-sites/dist/foundation.js"></script>
-<script type="text/javascript" src="${config.site_contextPath}vendor/foundation-sites/dist/plugins/foundation.sticky.js"></script>
 <script type="text/javascript" src="${config.site_contextPath}vendor/what-input/what-input.js"></script>
 <script type="text/javascript" src="${config.site_contextPath}vendor/highlightjs/highlight.pack.min.js"></script>
 <script type="text/javascript" src="${config.site_contextPath}js/app.js"></script>

@@ -19,22 +19,23 @@
     src: url(../fonts/OpenSans-Regular.ttf);
 }
 
-body, h1, h2, h3, h4, h5, h6, p, .label, .top-bar-section ul li > a {
+body, h1, h2, h3, h4, h5, h6 {
     font-family: OpenSans;
 }
 
-.top-bar-section ul li > a {
-    line-height: 39px;
+.top-bar {
+    padding: 0px;
+}
+
+.menu > li > a {
+    color: white;
+    padding: 1em;
 }
 
 pre > code {
     font-family: SourceCodePro;
 }
 
-header time {
-    color: #6F6F6F;
-    line-height: 0;
-}
 
 header hr {
     margin-top: 0.5em;
@@ -147,9 +148,10 @@ article.wrap {
 }
 
 .listingblock pre:not(.highlight) {
-    background-color: #b3b3b3;
+    background-color: #2b2b2b;
+    color: #bababa;
 }
 
 .conum[data-value] {
-    background-color: #a5a9af;
+    background-color: #777777;
 }

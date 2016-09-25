@@ -9,8 +9,8 @@ bower {
     installBase = "$jbake.srcDirName/assets/vendor"
 
     'foundation-sites'(foundationVersion){
-        source '**/*.css'
-        source '**/*.js'
+        source 'dist/**/*.css'
+        source 'dist/**/*.js'
 
         excludes 'fastclick'
         excludes 'jquery-placeholder'
