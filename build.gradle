@@ -42,7 +42,7 @@ else {
 }
 
 jbake{
-  version = "2.5.0-SNAPSHOT" //<8>
+  version = "2.5.0" //<8>
   asciidoctorjVersion = "1.5.4.1"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"

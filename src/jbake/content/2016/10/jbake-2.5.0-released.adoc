@@ -1,0 +1,74 @@
+= JBake 2.5.0 released! =
+Frank Becker
+2016-10-10
+:jbake-type: post
+:jbake-tags: jbake,release,groovy
+:jbake-status: published
+:jbake-language: en
+:jbake-description: JBake 2.5.0 with groovy MarkupTemplateEngine support released!
+:jbake-release: http://jbake.org/news/jbake-v2-5-0-released.html
+
+Amazing News! {jbake-release}[JBake Version 2.5.0] has finally arrived. Get it while it's hot!
+
+== Download ==
+See the official http://jbake.org/download.html[download] page for instructions. Or use my examples.
+
+=== curl ===
+
+[source, bash]
+----
+curl -L http://hash.to/5HQ -o /tmp/jbake-2.5.0-bin.zip
+----
+
+=== sdkman ===
+
+[source, bash]
+----
+sdk i jbake
+----
+
+=== jbake-gradle-plugin ===
+
+[source, gradle]
+----
+buildscript {
+  repositories {
+      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
+      mavenLocal()
+      jcenter()
+  }
+
+  dependencies {
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1'
+  }
+}
+
+apply plugin: 'me.champeau.jbake'
+
+repositories {
+  jcenter()
+}
+
+jbake{
+  version = "2.5.0"
+  asciidoctorjVersion = "1.5.4.1"
+}
+----
+
+== New Template Engine ==
+
+My favourite new feature is the groovy http://www.groovy-lang.org/templating.html#_the_markuptemplateengine[MarkupTemplateEngine] support.
+
+Try it yourself. Create a new jbake project, bake it, serve it.
+
+----
+mkdir /tmp/groovyMTE-blog
+cd /tmp/groovyMTE-blog
+jbake -i -t groovy-mte
+jbake -b
+jbake -s
+----
+
+This enables a more readable and modular template design  powered by http://www.groovy-lang.org[groovy] (version 2.4.7).
+
+I'm so happy! Happy baking everyone!
