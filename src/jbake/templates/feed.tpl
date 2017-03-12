@@ -1,6 +1,7 @@
 import java.text.SimpleDateFormat // <1>
 
-xmlDeclaration()
+yieldUnescaped "<?xml version='1.0' encoding='UTF-8'?>"
+newLine()
 feed(xmlns:"http://www.w3.org/2005/Atom"){
 
     title("${config.blog_title}")
