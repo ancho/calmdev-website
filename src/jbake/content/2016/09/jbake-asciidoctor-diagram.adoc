@@ -1,7 +1,8 @@
 = How to use asciidoctor-diagram with Jbake =
+// tag::header[]
 Frank Becker
 2016-09-21
-:jbake-updated: 16.10.2016
+:jbake-updated: 16.10.2016 // <1>
 :jbake-type: post
 :jbake-language: en
 :jbake-tags: jbake,asciidoctor,asciidoctor-diagram
@@ -12,6 +13,7 @@ Frank Becker
 :github-pull: https://github.com/jbake-org/jbake/pull/269
 :asciidoctor-diagram: https://github.com/asciidoctor/asciidoctor-diagram
 :jbake-gradle-plugin: https://github.com/jbake-org/jbake-gradle-plugin
+// end::header[]
 
 Since version 2.5.0 of jbake it *is* possible to use {asciidoctor-diagram}[asciidoctor-diagram].
 

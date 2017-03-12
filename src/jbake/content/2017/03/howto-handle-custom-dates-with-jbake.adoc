@@ -1,0 +1,113 @@
+= Howto handle custom dates with jbake =
+Frank Becker
+2017-03-12
+:jbake-type: post
+:jbake-tags: jbake, groovy
+:jbake-status: published
+:jbake-language: en
+:groovy-mte: http://www.groovy-lang.org/templating.html#_the_markuptemplateengine
+:groovy: http://groovy-lang.org
+:atom-dates: https://tools.ietf.org/html/rfc4287#section-3.3
+:sitemap-date: https://www.sitemaps.org/protocol.html
+
+A little example how to handle custom dates with jbake, using {groovy}[groovy] {groovy-mte}[MarkupTemplateEngine], to generate a valid sitemap
+and atom feed.
+
+== Show the world you updated a post ==
+
+Lets say you wrote a blog post a while ago, maybe September 2016, but you want to update a detail
+you have missed.
+
+=== Introduce a new Property
+
+So you open your post update it and add a new jbake Property to your header.
+
+[source,asciidoc]
+----
+include::{sourceDir}/src/jbake/content/2016/09/jbake-asciidoctor-diagram.adoc[tags=header]
+----
+<1> A Property called `updated` with a date String `dd.MM.yyyy`
+
+=== Use the property to render the date ===
+
+Extend your template to show when the post was updated.
+
+[source,groovy]
+.A subtemplate representing a post (src/jbake/templates/bricks/post-brick.tpl)
+----
+include::{sourceDir}/src/jbake/templates/bricks/post-brick.tpl[]
+----
+<1> Render `updated` property only if set in the post
+
+== Add format Strings to your configuration
+
+As you want to render the date in different formats I recommend to add the format strings to
+your configuration.
+
+That way you can reuse them in different templates.
+
+[source,groovy]
+.Adding format strings to the gradle configuration
+----
+jbake{
+  version = "2.5.1"
+  asciidoctorjVersion = "1.5.4.1"
+  configuration['blog.title'] = "calmdevelopment"
+  configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
+  configuration['db.store'] = "local"
+  configuration['db.path']= "build/cache"
+  configuration['site.host'] = config.server.url
+  configuration['render.tags'] = true
+  configuration['site.contextPath'] = config.server.contextPath
+  configuration['foundation.version'] = foundationVersion
+  configuration['twitter.user'] = "@knarfancho"
+  configuration['asciidoctor.option.requires'] = "asciidoctor-diagram"
+  configuration['asciidoctor.attributes'] = [
+    "sourceDir=${projectDir}",
+    "imagesdir=${config.server.contextPath}img",
+    "imagesoutdir=${bake.input}/assets/img",
+    "source-highlighter=highlight.js",
+    "icons=font"
+  ]
+  configuration['feed.timestamp'] = "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'" // <1>
+  configuration['sitemap.format'] = 'yyyy-MM-dd' // <2>
+  configuration['updated.format'] = "dd.MM.yyyy" // <3>
+}
+----
+<1> A date format for {atom-dates}[atom feeds]
+<2> A date format for the {sitemap-date}[sitemap]
+<3> The date format I'm using for the `updated` property
+
+== Update sitemap template
+
+Change the sitemap template to use the `updated` property to set the last modification date of your post.
+
+[source, groovy]
+.The sitemap template (src/jbake/templates/sitemap.tpl)
+----
+include::{sourceDir}/src/jbake/templates/sitemap.tpl[]
+----
+:simpleDateFormat: https://docs.oracle.com/javase/8/docs/api/index.html?java/text/SimpleDateFormat.html
+<1> import {simpleDateFormat}[SimpleDateFormat] to format and parse a date string
+<2> declare a Date variable
+<3> try to convert the date string if the `updated` property is set
+<4> parse the `updated` date string and format with `updated.format` from configuration
+<5> ternary condition to use `dateUpdated` or the post date to format with `sitemap.format` from configuration
+
+== Update feed template
+
+Now do the same for the feed template.
+
+[source, groovy]
+.The sitemap template (src/jbake/templates/feed.tpl)
+----
+include::{sourceDir}/src/jbake/templates/feed.tpl[]
+----
+:simpleDateFormat: https://docs.oracle.com/javase/8/docs/api/index.html?java/text/SimpleDateFormat.html
+<1> import {simpleDateFormat}[SimpleDateFormat] to format and parse a date string
+<2> declare a Date variable
+<3> try to convert the date string if the `updated` property is set
+<4> parse the `updated` date string and format with `updated.format` from configuration
+<5> ternary condition to use `dateUpdated` or the post date to format with `feed.format` from configuration
+
+That's it!

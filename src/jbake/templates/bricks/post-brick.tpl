@@ -19,7 +19,7 @@ div(class:"row"){
                         include template: 'bricks/tags.tpl'
                     }
                     div(class:"small-3 medium-3 large-3 columns text-right") {
-                        if( post.updated ){
+                        if( post.updated ){ // <1>
                             strong('Updated: ')
                             yield post.updated
                         }

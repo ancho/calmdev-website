@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat // <1>
+
 xmlDeclaration()
 feed(xmlns:"http://www.w3.org/2005/Atom"){
 
@@ -7,9 +9,9 @@ feed(xmlns:"http://www.w3.org/2005/Atom"){
     newLine()
     link(rel:"self", type:"application/atom+xml", href:"${config.site_host}${config.site_contextPath}${config.feed_file}")
     newLine()
-    subtitle("${config.blog_subtitle}")
+    subtitle("${config.blog_subtitle?:""}")
     newLine()
-    updated("${published_date.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')}")
+    updated("${published_date.format(config.feed_format)}")
     newLine()
     id("tag:${config.feed_id},${published_date.format('yyyy:MM')}")
     newLine()
@@ -23,7 +25,13 @@ feed(xmlns:"http://www.w3.org/2005/Atom"){
           newLine()
           link(href:"${config.site_host}${config.site_contextPath}${post.uri}")
           newLine()
-          updated("${post.date.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')}")
+
+          Date dateUpdated // <2>
+          if ( post.updated ) { // <3>
+              dateUpdated = new SimpleDateFormat(config.updated_format).parse(post.updated) // <4>
+          }
+
+          updated("${dateUpdated?dateUpdated.format(config.feed_format):post.date.format(config.feed_format)}") // <5>
           newLine()
           id("${config.site_host}${config.site_contextPath}${post.uri}")
           newLine()
