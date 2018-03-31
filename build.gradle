@@ -6,19 +6,18 @@ buildscript {
   }
 
   dependencies {
-    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1' //<2>
-    classpath 'org.asciidoctor:asciidoctorj-diagram:1.5.0' //<3>
+    classpath 'org.asciidoctor:asciidoctorj-diagram:1.5.4.1' //<3>
   }
 }
 
 plugins {
-    id 'com.github.ben-manes.versions' version '0.14.0'
-    id 'org.akhikhl.gretty' version '1.4.0' apply false
+    id 'com.github.ben-manes.versions' version '0.17.0'
+    id 'org.akhikhl.gretty' version '2.0.0' apply false
     id 'com.craigburke.bower-installer' version '2.5.1'
     id 'distribution'
+    id "org.jbake.site" version "1.1.1" //<2>
 }
 
-apply plugin: 'me.champeau.jbake'
 apply from: 'gradle/distribution.gradle'
 apply from: 'gradle/environment.gradle'
 apply from: 'gradle/webResources.gradle'
@@ -43,13 +42,12 @@ else {
 }
 
 jbake{
-  version = "2.5.1"
-  asciidoctorjVersion = "1.5.4.1"
+  version = "2.6.0"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
-  configuration['db.store'] = "local"
+  configuration['db.store'] = "plocal"
   configuration['db.path']= "build/cache"
-  configuration['site.host'] = config.server.url
+  configuration['site.host'] = "$config.server.url" as String
   configuration['render.tags'] = true
   configuration['site.contextPath'] = config.server.contextPath
   configuration['foundation.version'] = foundationVersion

@@ -1,4 +1,0 @@
-pluginRepositories {
-    maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
-    gradlePluginPortal()
-}
