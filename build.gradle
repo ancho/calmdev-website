@@ -15,7 +15,7 @@ plugins {
     id 'org.akhikhl.gretty' version '2.0.0' apply false
     id 'com.craigburke.bower-installer' version '2.5.1'
     id 'distribution'
-    id "org.jbake.site" version "1.1.1" //<2>
+    id "org.jbake.site" version "1.2.0" //<2>
 }
 
 apply from: 'gradle/distribution.gradle'
@@ -42,7 +42,7 @@ else {
 }
 
 jbake{
-  version = "2.6.0"
+  version = "2.6.1"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
   configuration['db.store'] = "plocal"

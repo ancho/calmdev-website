@@ -1,0 +1,27 @@
+= Impressum =
+Frank Becker
+2018-05-24
+:jbake-type: page
+:jbake-status: published
+:jbake-language: de
+
+== Angaben gemäß § 5 TMG ==
+
+Frank Becker +
+Guckertsweg 9 +
+35423 Lich
+
+*Telefon:* 06404 40 392 44 +
+*E-Mail:* info (at) calmdevelopment (dot) de
+
+=== Online-Streitbeilegung ===
+
+Die Europäische Kommission stellt unter https://ec.europa.eu/consumers/odr/
+eine Plattform zur Online-Streitbeilegung bereit, die Verbraucher für die Beilegung
+einer Streitigkeit nutzen können und auf der weitere Informationen zum Thema
+Streitschlichtung zu finden sind.
+
+=== Außergerichtliche Streitbeilegung ===
+
+Wir sind weder verpflichtet noch dazu bereit, im Falle einer Streitigkeit mit einem
+Verbraucher an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.

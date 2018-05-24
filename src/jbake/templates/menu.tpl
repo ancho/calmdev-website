@@ -40,6 +40,12 @@ div(class:"row") {
                                     yield "Archive"
                                 }
                             }
+                            li {
+                                a(href:"${config.site_contextPath}impressum.html") {
+                                    yield "Impressum"
+                                }
+                            }
+
                         }
                     }
                     div(class:"top-bar-right") {
