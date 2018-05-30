@@ -42,7 +42,14 @@ div(class:"row") {
                             }
                             li {
                                 a(href:"${config.site_contextPath}impressum.html") {
+                                    i(class:"fi-info"){}
                                     yield "Impressum"
+                                }
+                            }
+                            li {
+                                a(href:"${config.site_contextPath}datenschutz.html") {
+                                    i(class:"fi-shield"){}
+                                    yield "Datenschutz"
                                 }
                             }
 

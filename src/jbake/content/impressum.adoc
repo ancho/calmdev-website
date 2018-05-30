@@ -1,6 +1,6 @@
 = Impressum =
 Frank Becker
-2018-05-24
+2018-05-25
 :jbake-type: page
 :jbake-status: published
 :jbake-language: de
