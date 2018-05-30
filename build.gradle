@@ -63,4 +63,5 @@ jbake{
   configuration['feed.format'] = "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'"
   configuration['sitemap.format'] = "yyyy-MM-dd"
   configuration['updated.format'] = "dd.MM.yyyy"
+  configuration['asciidoctor.attributes.export'] = true
 }
