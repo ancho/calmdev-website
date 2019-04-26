@@ -1,0 +1,68 @@
+= Installation von podman auf Debian Buster
+Frank Becker
+2019-04-26
+:jbake-type: post
+:jbake-tags: debian, podman
+:jbake-status: published
+:jbake-language: de
+
+
+----
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux buster/sid
+Release:        testing
+Codename:       buster
+----
+
+== Ubuntu projectatomic repository hinzufügen 
+
+In den offiziellen repositories von Debian ist https://podman.io/[podman] nicht enthalten.
+Dafür lässt sich das https://launchpad.net/~projectatomic/+archive/ubuntu/ppa[projectatomic] ubuntu repository verwenden.
+
+=== Repo hinzufügen
+
+----
+sudo add-apt-repository "deb http://ppa.launchpad.net/projectatomic/ppa/ubuntu bionic main"
+----
+
+=== Signatur key hinzufügen
+
+----
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8BECF1637AD8C79D
+----
+
+.Ausgabe nach Ausführung
+----
+Executing: /tmp/apt-key-gpghome.3JoLjtvYdG/gpg.1.sh --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8BECF1637AD8C79D
+gpg: Schlüssel 8BECF1637AD8C79D: Öffentlicher Schlüssel "Launchpad PPA for Project Atomic" importiert
+gpg: Anzahl insgesamt bearbeiteter Schlüssel: 1
+gpg:                              importiert: 1
+----
+
+=== podman installieren
+
+----
+sudo apt update
+sudo apt install podman
+----
+
+== user namespaces aktivieren 
+
+Folgender Fehler begrüßte mich beim ersten Ausführen von podman
+
+----
+podman
+cannot clone: Operation not permitted
+user namespaces are not enabled in /proc/sys/kernel/unprivileged_userns_clone
+----
+
+Unter Debian muss man diese Option erst aktivieren.
+
+----
+echo 'kernel.unprivileged_userns_clone=1' > /etc/sysctl.d/00-local-userns.conf
+service procps restart
+----
+
+Siehe auch http://man7.org/linux/man-pages/man7/user_namespaces.7.html[Linux user_namespaces]
