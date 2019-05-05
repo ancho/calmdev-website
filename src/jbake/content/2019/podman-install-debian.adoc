@@ -5,7 +5,7 @@ Frank Becker
 :jbake-tags: debian, podman
 :jbake-status: published
 :jbake-language: de
-
+:jbake-updated: 05.05.2019
 
 ----
 lsb_release -a
@@ -66,3 +66,19 @@ service procps restart
 ----
 
 Siehe auch http://man7.org/linux/man-pages/man7/user_namespaces.7.html[Linux user_namespaces]
+
+== registry konfigurieren
+
+Man kann verschiedene container registries konfigurieren. 
+Nach einer frischen Installation muss man `docker.io` noch zu den registries hinzufügen, um images von
+docker herunterladen zu können.
+Anderenfalls muss man die komplette registry url mit angeben.
+
+z.B.: `podman search docker.io/alpine` vs `podman search alpine`
+
+./etc/containers/registries.conf
+----
+[registries.search]
+registries = ['docker.io']
+----
+
