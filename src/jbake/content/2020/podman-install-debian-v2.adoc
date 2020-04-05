@@ -1,0 +1,55 @@
+= Installation von podman unter Debian (v2)
+Frank Becker
+2020-04-05
+:jbake-type: post
+:jbake-tags: debian, podman
+:jbake-status: published
+:jbake-language: de
+
+----
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux bullseye/sid
+Release:        testing
+Codename:       bullseye
+----
+
+== Opensuse Kubic project ersetzt Ubuntu projectatomic repository
+
+Die letzte Version von podman im projectatomic repository ist 1.6.3.
+Siehe https://launchpad.net/~projectatomic/+archive/ubuntu/ppa.
+
+Die neueste Version von podman ist 1.8.2.
+
+Es gibt eine https://podman.io/getting-started/installation[Anleitung zur Installation] für Debian.
+
+Dieser bin ich gefolgt und habe nun die aktuellste Version von podman.
+
+== Was ist mit einem offiziellen Debian repository?
+
+Daran wird gearbeitet. Kann man auch der Installationsanleitung für Debian entnehmen.
+Hier noch ein ergänzender Link https://wiki.debian.org/Podman
+
+=== Repo hinzufügen
+
+Das projectatomic repository habe ich rausgeworfen und das opensuse kubic repo statt dessen hinzugefügt.
+
+----
+echo 'deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_Testing/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_Testing/Release.key | sudo apt-key add -
+----
+
+=== podman installieren
+
+----
+sudo apt update
+sudo apt install podman
+----
+
+Es kam zu Konflikten mit einer Bibliothek. Diese habe ich folgendermaßen behoben:
+
+----
+apt --fix-broken install
+apt install
+----
