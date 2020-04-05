@@ -28,7 +28,8 @@ Dieser bin ich gefolgt und habe nun die aktuellste Version von podman.
 
 == Was ist mit einem offiziellen Debian repository?
 
-Daran wird gearbeitet. Kann man auch der Installationsanleitung für Debian entnehmen.
+Daran wird gearbeitet. Kann man das auch der Installationsanleitung für Debian entnehmen.
+
 Hier noch ein ergänzender Link https://wiki.debian.org/Podman
 
 === Repo hinzufügen
