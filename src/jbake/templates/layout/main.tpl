@@ -9,9 +9,10 @@ html{
 
         include template: 'menu.tpl'
 
-        main {
-            bodyContents()
-        }
+        yieldUnescaped '<main>'
+        bodyContents()
+        yieldUnescaped '</main>'
+
         newLine()
         include template: 'footer.tpl'
 

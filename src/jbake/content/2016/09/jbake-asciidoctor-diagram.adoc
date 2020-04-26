@@ -1,8 +1,7 @@
 = How to use asciidoctor-diagram with Jbake =
-// tag::header[]
 Frank Becker
 2016-09-21
-:jbake-updated: 16.10.2016 // <1>
+:jbake-updated: 26.04.2020
 :jbake-type: post
 :jbake-language: en
 :jbake-tags: jbake,asciidoctor,asciidoctor-diagram
@@ -13,30 +12,27 @@ Frank Becker
 :github-pull: https://github.com/jbake-org/jbake/pull/269
 :asciidoctor-diagram: https://github.com/asciidoctor/asciidoctor-diagram
 :jbake-gradle-plugin: https://github.com/jbake-org/jbake-gradle-plugin
-// end::header[]
 
 Since version 2.5.0 of jbake it *is* possible to use {asciidoctor-diagram}[asciidoctor-diagram].
 
-This is a little demonstration of how to use this feature with jbake 2.5.0 and an {bintray-gradle-plugin}[unofficial version] of the {jbake-gradle-plugin}[jbake-gradle-plugin] at my private bintray repository.
+This is a little demonstration of how to use this feature with jbake 2.6.5 and  {jbake-gradle-plugin}[jbake-gradle-plugin].
 
 It's inspired by a {jbake-users-question}[question on the jbake user list].
 
 == gradle project configuration
 
 Here is an example of my current gradle build file.
-See https://github.com/ancho/calmdev-website/blob/master/src/jbake/content/2016/09/jbake-asciidoctor-diagram.adoc[source @github] for the full example.
+See https://github.com/ancho/calmdev-website/blob/master/build.gradle[source @github] for the full example.
 [source, gradle]
 .build.gradle used to build this blog
 ----
 include::{sourceDir}/build.gradle[]
 ----
-<1> My personal repository at bintray for the jbake-gradle-plugin
-<2> Add the 0.3.0-alpha.1 version of the plugin to the classpath
-<3> Add asciidoctorj-diagram 1.5.0 to the classpath
-<4> Configure asciidoctor to require asciidoctor-diagram
-<5> Set attribute sourceDir to the projects directory to easyly include source files (like this one). e.g.: `include::\{sourceDir}/build.gradle`
-<6> The location of the image dir referenced in rendered img-tags. e.g: `<img src="/blog/img/asciidoctor-diagram-classes.png" alt="asciidoctor diagram classes" width="270" height="283">`
-<7> The output location for the rendered diagram images
+<1> Add asciidoctorj-diagram 2.0.1 to the classpath
+<2> Configure asciidoctor to require asciidoctor-diagram
+<3> Set attribute sourceDir to the projects directory to easyly include source files (like this one). e.g.: `include::\{sourceDir}/build.gradle`
+<4> The location of the image dir referenced in rendered img-tags. e.g: `<img src="/blog/img/asciidoctor-diagram-classes.png" alt="asciidoctor diagram classes" width="270" height="283">`
+<5> The output location for the rendered diagram images
 
 == Add a diagram to your document
 

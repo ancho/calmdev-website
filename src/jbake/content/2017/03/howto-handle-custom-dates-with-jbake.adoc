@@ -1,6 +1,7 @@
 = Howto handle custom dates with jbake =
 Frank Becker
 2017-03-12
+:jbake-updated: 26.04.2020
 :jbake-type: post
 :jbake-tags: jbake, groovy
 :jbake-status: published
@@ -24,7 +25,9 @@ So you open your post update it and add a new jbake Property to your header.
 
 [source,asciidoc]
 ----
-include::{sourceDir}/src/jbake/content/2016/09/jbake-asciidoctor-diagram.adoc[tags=header]
+:jbake-updated: 26.04.2020 //<1>
+:jbake-type: post
+:jbake-status: published
 ----
 <1> A Property called `updated` with a date String `dd.MM.yyyy`
 

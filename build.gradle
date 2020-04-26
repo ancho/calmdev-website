@@ -1,26 +1,15 @@
-buildscript {
-  repositories {
-      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" } //<1>
-      mavenLocal()
-      jcenter()
-  }
-
-  dependencies {
-    classpath 'org.asciidoctor:asciidoctorj-diagram:1.5.4.1' //<3>
-  }
-}
-
 plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
-    id 'org.akhikhl.gretty' version '2.0.0' apply false
+    id 'org.gretty' version '3.0.2' apply false
     id 'com.craigburke.bower-installer' version '2.5.1'
     id 'distribution'
-    id "org.jbake.site" version "5.0.0" //<2>
+    id "org.jbake.site" version "5.1.0"
 }
+
 
 apply from: 'gradle/distribution.gradle'
 apply from: 'gradle/environment.gradle'
-apply from: 'gradle/webResources.gradle'
+//apply from: 'gradle/webResources.gradle'
 
 repositories {
   mavenLocal()
@@ -29,7 +18,7 @@ repositories {
 
 if ( env == "local" ){
   apply plugin: 'war'
-  apply plugin: 'org.akhikhl.gretty'
+  apply plugin: 'org.gretty'
 
   gretty {
     httpPort = config.server.port
@@ -41,8 +30,12 @@ else {
   apply from: 'gradle/publish.gradle'
 }
 
+dependencies {
+    jbake "org.asciidoctor:asciidoctorj-diagram:2.0.1" // <1>
+}
+
 jbake{
-  version = "2.6.4"
+  version = "2.6.5"
   configuration['blog.title'] = "calmdevelopment"
   configuration['blog.description'] = "'A personal Blog. Mostly about tech stuff. groovy, gradle, asciidoctor, jbake and other interesting stuff that crosses my path...'"
   configuration['db.store'] = "plocal"
@@ -50,13 +43,13 @@ jbake{
   configuration['site.host'] = "$config.server.url" as String
   configuration['render.tags'] = true
   configuration['site.contextPath'] = config.server.contextPath
-  configuration['foundation.version'] = foundationVersion
+  configuration['foundation.version'] = "version"
   configuration['twitter.user'] = "@knarfancho"
-  configuration['asciidoctor.option.requires'] = "asciidoctor-diagram" //<4>
+  configuration['asciidoctor.option.requires'] = "asciidoctor-diagram" // <2>
   configuration['asciidoctor.attributes'] = [
-    "sourceDir=${projectDir}", //<5>
-    "imagesdir=${config.server.contextPath}img", //<6>
-    "imagesoutdir=${bake.input}/assets/img", //<7>
+    "sourceDir=${projectDir}", // <3>
+    "imagesdir=${config.server.contextPath}img", // <4>
+    "imagesoutdir=${bake.input}/assets/img", // <5>
     "source-highlighter=highlight.js",
     "icons=font"
   ]
